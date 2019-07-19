@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Access Denied Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/accessdenied.css" asp-append-version="true"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+                <img src="~/images/ba45588c2b06be11c05b57dfd060004a.jpg" alt="Wizard" />
+                <h1 id="message1">ACCESS DENIED 403</h1>
+                <h3 id="message2">We're sorry, but you don't have access to this page!</h3>
+                <a class="btn btn-info" id="btn_return" asp-action="Index" asp-controller="Home">Return to Home Page</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+

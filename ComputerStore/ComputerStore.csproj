@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190527110808_UserPhoto.cs" />
+    <Compile Remove="Migrations\20190527110808_UserPhoto.Designer.cs" />
+    <Compile Remove="Migrations\20190527114811_UserPhoto.cs" />
+    <Compile Remove="Migrations\20190527114811_UserPhoto.Designer.cs" />
+    <Compile Remove="Migrations\20190604063204_CartServices.cs" />
+    <Compile Remove="Migrations\20190604063204_CartServices.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190507201859_FilterOptions.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190507201859_FilterOptions.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190515120132_ProductPropertiesAllowNullable.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190515120132_ProductPropertiesAllowNullable.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190519075433_ImageList.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190519075433_ImageList.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530114948_NewImageUrlLength.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530114948_NewImageUrlLength.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530151212_Images.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530151212_Images.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530153117_NewImageList.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530153117_NewImageList.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530153842_NewImageList.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190530153842_NewImageList.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190603173723_Stock.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190603173723_Stock.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190603222420_Stock.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190603222420_Stock.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190604181312_Orders.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190604181312_Orders.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190605001638_Orders.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190605001638_Orders.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606084956_Orders.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606084956_Orders.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606090903_OrderLines.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606090903_OrderLines.Designer.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606162403_Stock.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190606162403_Stock.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\" />
+    <Folder Include="wwwroot\images\products\" />
+    <Folder Include="wwwroot\images\users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\browserconfig.xml" />
+    <None Include="wwwroot\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="StackifyMiddleware" Version="3.0.4" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+  </ItemGroup>
+
+</Project>

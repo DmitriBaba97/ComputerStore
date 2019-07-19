@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<div class="container-fluid products_container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <table class="table table-sm table-bordered table-hover products_table">
+                <thead class="text-white" style="background-color: #797B3A;">
+                    <tr class="text-center">
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product p in Model)
+                    {
+                    <tr class="text-center">
+                        <td>@p.Name</td>
+                        <td>@p.Category.Name</td>
+                        <td>@p.Subcategory.Name</td>
+                        <td>@p.Price<span>$</span></td>
+                        <td>
+                            
+                            <form id="deleteProductForm" asp-action="DeleteProduct" asp-controller="Product" method="post">
+                                <input type="hidden" name="Id" value="@p.Id" />
+                                <a asp-action="EditProduct" asp-controller="Product" asp-route-id="@p.Id" class="btn btn-outline-warning">Edit</a>
+                                <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target=@("#myProductModal" + p.Id)>Delete</button>
+                                <button type="submit" id="btn_submit" style="display: none;"></button>
+                                <div class="modal fade" id=@("myProductModal" + p.Id)>
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-danger text-white">
+                                                <h4 class="modal-title">Delete product</h4>
+                                                <button type='button' class='close' data-dismiss='modal'><i class='fas fa-window-close text-white'></i></button>
+                                            </div>
+                                            <div class="modal-body" style="font-size: 0.9rem; font-family: Numans, sans-serif;">
+                                                <i class='fas fa-exclamation-triangle fa-lg text-danger'></i> Do you really want to delete product <b>@p.Name</b> ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-danger m-1" onclick="$('#deleteProductForm #btn_submit').click();" data-dismiss="modal">Delete</button>
+                                                <button type="button" class="btn btn-outline-secondary m-1" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

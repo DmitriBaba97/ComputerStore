@@ -1,0 +1,21 @@
+﻿.categoryForm .category_name {
+    display: block;
+    width: 500px;
+}
+.categoryForm .add_category_btn {
+    width: 250px;
+    height: 45px;
+    border-radius: 25px;
+}
+.category_table .category_edit_input {
+    display: inline-block;
+    width: 80%;
+    height: auto;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-weight: 300;
+}
+    .category_table .category_edit_input:focus {
+        outline: none;
+    }

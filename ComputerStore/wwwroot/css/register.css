@@ -1,0 +1,85 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Numans');
+* {box-sizing: border-box;}
+body {
+    height: 100%;
+    background-image: url(../images/agriculture-clouds-desktop-backgrounds-3590.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.container {
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.card {
+    background-color: #eff4ff;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.card-header {
+    background: inherit;
+    padding: 15px 5px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+.info {
+    color: grey;
+    top: 5px;
+    right: 10px;
+}
+.input-group-text {
+    background-color: #577284;
+    color: white;
+}
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+.btn-container {text-align: center;}
+.register-btn {
+    font-weight: 600;
+    width: 50%;
+    background-color: white;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 10px 5px;
+}
+.register-btn:hover {
+    background-color: blueviolet;
+    color: white;
+}
+.error_message {
+    color: orangered;
+    font-weight: 600;
+}
+.require_message {
+    color: grey;
+    padding: 12px 6px;
+    margin: 10px 5px;
+}
+.card-footer {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    color: grey;
+}
+.card-footer a:hover {
+    color: black;
+    text-decoration: none;
+}
+.popover {
+    background-color: rgba(0,0,0,0.7) !important;
+}
+.popover-body {
+    color: white;
+    font-weight: 600;
+}
+@media screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+    .container {
+        margin: 25px 0;
+    }
+}

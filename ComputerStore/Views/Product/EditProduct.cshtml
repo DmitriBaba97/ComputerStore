@@ -1,0 +1,156 @@
+﻿@model Product
+@inject ICategoryRepository categoryRepos
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div id="editProduct_container" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12 m-2 p-2">
+            <form id="editProductForm" enctype="multipart/form-data" asp-action="EditProduct" asp-controller="Product" method="post">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="Name"></span></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Name:</label>
+                        <input asp-for="Name" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Category:</label>
+                    <select id="selectCategory" style="width: calc(100% - 120px);">
+                        <option value="">Select Category</option>
+                        @foreach (Category category in categoryRepos.Categories)
+                        {
+                            if (category.Name == Model.Category.Name)
+                            {
+                                <option value="@category.Name" selected>@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.Name">@category.Name</option>
+                            }
+                        }
+                    </select>
+                    <input type="hidden" asp-for="CategoryID" />
+                </div>
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Subcategory:</label>
+                    <select id="selectSubcategory" style="width: calc(100% - 120px);">
+                        <option value="">Select Subcategory</option>
+                        @foreach (Subcategory subcategory in Model.Category.Subcategories)
+                        {
+                            @if (subcategory.Name == Model.Subcategory.Name)
+                            {
+                                <option value="@subcategory.Name" selected>@subcategory.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@subcategory.Name">@subcategory.Name</option>
+                            }
+                        }
+                    </select>
+                    <input type="hidden" asp-for="SubcategoryID" />
+                </div>
+                <div id="productProperties">
+                    @for (int i = 0; i < Model.Properties.Count; i++)
+                    {
+                        <div class="form-group d-flex">
+                            <label class="font-weight-bold" style="width: 120px;">@Model.Properties[i].Name<span>:</span></label>
+                            <input type="hidden" asp-for="Properties[i].Name" value="@Model.Properties[i].Name" />
+                            <select asp-for="Properties[i].Value" class="form-control" style="width: calc(100% - 120px);">
+                                <option value="">Select @Model.Properties[i].Name</option>
+                                @{ var option = Model.Subcategory.FilterOptions.FirstOrDefault(o => o.Name == Model.Properties[i].Name); }
+                                @foreach (FilterOptionValue value in option.Values)
+                                {
+                                    @if (value.Value == Model.Properties[i].Value)
+                                    {
+                                        <option value="@value.Value" selected>@value.Value</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@value.Value">@value.Value</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    }
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="Price"></span></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Price:</label>
+                        <input asp-for="Price" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="StockPrice"></span></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Stock Price:</label>
+                        <input asp-for="StockPrice" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="AmountInStock"></span></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Amount in Stock:</label>
+                        <input asp-for="AmountInStock" min="0" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Description:</label>
+                    <textarea asp-for="Description" class="form-control" cols="5" rows="50" style="width: calc(100% - 120px);height: 150px;"></textarea>
+                </div>
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Images:</label>
+                    <div class="d-flex flex-column align-items-center images_control" style="width: calc(100% - 120px);">
+                        <input type="file" multiple id="uploadFile" style="display: none;" onchange="uploadImages('#editProductForm')" />
+                        <button type="button" id="uploadFileBtn" class="btn btn-outline-secondary w-100">Upload images <i class="fas fa-images"></i></button>
+                        <div class="progress" style="width: 250px; height: 25px; margin: 10px;background-color: lightblue; display: none;">
+                            <div id="progressBar" class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="images_container m-2 p-2 w-100 h-auto clearfix">
+                    @if (Model.Images.Count != 0)
+                    {
+                        foreach (Image img in Model.Images)
+                        {
+                            <div data-imageid="@img.Id" class="float-left m-1 p-3 position-relative">
+                                <button type="button" class="position-absolute" style="top: 0;right: 0;background-color: transparent;border: none;" onclick="deleteImage(@img.Id)">
+                                    <i class="fas fa-window-close text-danger"></i>
+                                </button>
+                                <img src="@("\\images\\products\\" + img.Name)" alt="product_name" width="100" height="100" />
+                            </div>
+
+                        }
+                    }
+                </div>
+                <div id="preview_images_container" class="m-2 p-2 w-100 h-auto clearfix">
+                    <label class="font-weight-bold">Preview Image:</label>
+                    <p style="text-align: center;">
+                        <b>Hint:</b> <span style="font-style:italic;">Select preview image by click on it</span>
+                    </p>
+                    @if (Model.Images.Count != 0)
+                    {
+                        foreach (Image img in Model.Images)
+                        {
+                            <div data-imageid="@img.Id" class="float-left m-1 p-3">
+                                <img src="@("\\images\\products\\" + img.Name)" alt="product_name" width="100" height="100" onclick="setPreviewProperty(@img.Id, @Model.Id, true)" />
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary m-1" style="width: 230px;height: 40px;border-radius: 25px;">
+                        Save <i class="fas fa-check-circle"></i>
+                    </button>
+                    <a asp-action="EditProducts" asp-controller="Product" class="btn btn-secondary m-1" style="width: 230px;height: 40px;border-radius: 25px;">
+                        <i class="fas fa-window-close bg-danger"></i> Return
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,350 @@
+2019-07-12T21:22:22.2022659+03:00 0HLO6UNGL0RBA:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-07-12T21:22:22.2023218+03:00 0HLO6UNGL0RB9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-07-12T21:22:22.9254479+03:00 0HLO6UNGL0RBA:00000001 [INF] Request finished in 773.1736ms 200  (791a596a)
+2019-07-12T21:22:27.4210069+03:00 0HLO6UNGL0RB9:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:22:36.6753336+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("494"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:22:40.3301471+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("1,434"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AboutMe], [e].[AccessFailedCount], [e].[Address], [e].[City], [e].[ConcurrencyStamp], [e].[Country], [e].[DateCreated], [e].[Email], [e].[EmailConfirmed], [e].[FirstName], [e].[LastName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[Photo], [e].[SecurityQuestion], [e].[SecurityQuestionAnswer], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-07-12T21:22:42.8662701+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("304"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-07-12T21:22:44.1361843+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("784"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-12T21:22:44.6633597+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("311"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-07-12T21:22:45.2114584+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("171"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-07-12T21:22:49.1278588+03:00 0HLO6UNGL0RB9:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-07-12T21:22:50.6274276+03:00 0HLO6UNGL0RB9:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:22:54.6277245+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("1,817"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:22:54.7108557+03:00 0HLO6UNGL0RB9:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-12T21:22:54.8626610+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 62.6781ms. (50a9e262)
+2019-07-12T21:22:55.7929907+03:00 0HLO6UNGL0RB9:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-12T21:22:56.7125390+03:00 0HLO6UNGL0RB9:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-12T21:22:56.8117973+03:00 0HLO6UNGL0RB9:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-12T21:22:56.9375767+03:00 0HLO6UNGL0RB9:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-12T21:22:57.1625949+03:00 0HLO6UNGL0RB9:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-12T21:22:57.9977299+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("232"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-07-12T21:22:58.7942937+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("553"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:02.3470342+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("188"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-07-12T21:23:02.5595629+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-07-12T21:23:02.8336925+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("28"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-07-12T21:23:02.9506284+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-07-12T21:23:03.6264027+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("409"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-12T21:23:03.7425464+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed DbCommand ("43"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-12T21:23:05.2221417+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed ViewResult - view "Index" executed in 10251.782ms. (f66409e9)
+2019-07-12T21:23:05.9639272+03:00 0HLO6UNGL0RB9:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 16137.7282ms (afa2e885)
+2019-07-12T21:23:05.9816193+03:00 0HLO6UNGL0RBB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/homepage.css?v=--KA5R-qAoqV1FK_cJHSNU4ZHySwt4RFzNKtyKsmdec   (ca22a1cb)
+2019-07-12T21:23:05.9966380+03:00 0HLO6UNGL0RBE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/faefd58e-f647-4b76-84c1-ee43924a3289.jpg   (ca22a1cb)
+2019-07-12T21:23:06.0023502+03:00 0HLO6UNGL0RBD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/homepage.js?v=j85rr-36mTuZxZbA-QAYmRmUFGpSrgUpA87LGKDJHpI   (ca22a1cb)
+2019-07-12T21:23:06.2865128+03:00 0HLO6UNGL0RBC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/productpreview.css?v=H5d1rXs5MXKvoSjd6fzxQEE3nAtIA5-28tU1yMt6HZs   (ca22a1cb)
+2019-07-12T21:23:06.4717649+03:00 0HLO6UNGL0RBE:00000001 [INF] The file "/images/products/faefd58e-f647-4b76-84c1-ee43924a3289.jpg" was not modified (f1f8d725)
+2019-07-12T21:23:06.7955178+03:00 0HLO6UNGL0RBD:00000001 [INF] The file "/js/homepage.js" was not modified (f1f8d725)
+2019-07-12T21:23:06.8067741+03:00 0HLO6UNGL0RBE:00000001 [INF] Request finished in 826.4416ms 304 image/jpeg (791a596a)
+2019-07-12T21:23:06.8330251+03:00 0HLO6UNGL0RBF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg   (ca22a1cb)
+2019-07-12T21:23:06.8515058+03:00 0HLO6UNGL0RBD:00000001 [INF] Request finished in 881.0749ms 304 application/javascript (791a596a)
+2019-07-12T21:23:06.8724009+03:00 0HLO6UNGL0RB9:00000001 [INF] Request finished in 44752.3723ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-12T21:23:06.8791120+03:00 0HLO6UNGL0RBF:00000001 [INF] The file "/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg" was not modified (f1f8d725)
+2019-07-12T21:23:06.9096348+03:00 0HLO6UNGL0RBG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/efbc1e50-38ee-4c4c-80e9-73544a0ce015.jpg   (ca22a1cb)
+2019-07-12T21:23:06.9397259+03:00 0HLO6UNGL0RBH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/2936bf9a-bc4c-4535-8241-15d35deec291.jpg   (ca22a1cb)
+2019-07-12T21:23:07.2175021+03:00 0HLO6UNGL0RBF:00000001 [INF] Request finished in 129.9117ms 304 image/jpeg (791a596a)
+2019-07-12T21:23:07.2537914+03:00 0HLO6UNGL0RBH:00000001 [INF] The file "/images/products/2936bf9a-bc4c-4535-8241-15d35deec291.jpg" was not modified (f1f8d725)
+2019-07-12T21:23:07.4072499+03:00 0HLO6UNGL0RBG:00000001 [INF] The file "/images/products/efbc1e50-38ee-4c4c-80e9-73544a0ce015.jpg" was not modified (f1f8d725)
+2019-07-12T21:23:07.4848690+03:00 0HLO6UNGL0RBH:00000001 [INF] Request finished in 565.6705ms 304 image/jpeg (791a596a)
+2019-07-12T21:23:07.5756239+03:00 0HLO6UNGL0RBA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/mainpagenavbar.css?v=D7f2BLDzVvUg7s_8D7wXjnpvZiTcGPZKviAQoaKMp3c   (ca22a1cb)
+2019-07-12T21:23:08.4029393+03:00 0HLO6UNGL0RBG:00000001 [INF] Request finished in 1213.3569ms 304 image/jpeg (791a596a)
+2019-07-12T21:23:08.9328241+03:00 0HLO6UNGL0RBA:00000002 [INF] The file "/css/mainpagenavbar.css" was not modified (f1f8d725)
+2019-07-12T21:23:09.1753842+03:00 0HLO6UNGL0RBC:00000001 [INF] The file "/css/productpreview.css" was not modified (f1f8d725)
+2019-07-12T21:23:09.5112289+03:00 0HLO6UNGL0RBA:00000002 [INF] Request finished in 1886.5789ms 304 text/css (791a596a)
+2019-07-12T21:23:09.5553828+03:00 0HLO6UNGL0RBC:00000001 [INF] Request finished in 3510.6113ms 304 text/css (791a596a)
+2019-07-12T21:23:09.7203729+03:00 0HLO6UNGL0RBB:00000001 [INF] The file "/css/homepage.css" was not modified (f1f8d725)
+2019-07-12T21:23:09.8058683+03:00 0HLO6UNGL0RBB:00000001 [INF] Request finished in 3807.7694ms 304 text/css (791a596a)
+2019-07-12T21:23:44.4715280+03:00 0HLO6UNGL0RBE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-12T21:23:44.5221055+03:00 0HLO6UNGL0RBE:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:23:44.5759678+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("47"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:23:44.5915983+03:00 0HLO6UNGL0RBE:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-12T21:23:44.6914723+03:00 0HLO6UNGL0RBE:00000002 [INF] Authorization was successful. (0d575a54)
+2019-07-12T21:23:44.7015083+03:00 0HLO6UNGL0RBE:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:23:44.7739580+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("42"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:23:44.7848806+03:00 0HLO6UNGL0RBE:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-12T21:23:44.7930854+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.9725ms. (50a9e262)
+2019-07-12T21:23:44.8305766+03:00 0HLO6UNGL0RBE:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-12T21:23:44.9651185+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:44.9847152+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id] DESC, [c.Products].[Id]" (0723d8ff)
+2019-07-12T21:23:44.9971543+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0] DESC, [t1].[Id]" (0723d8ff)
+2019-07-12T21:23:45.0077603+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:45.0192774+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:45.0333970+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id] DESC, [c.Products].[Id]" (0723d8ff)
+2019-07-12T21:23:45.0471771+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0] DESC, [t1].[Id]" (0723d8ff)
+2019-07-12T21:23:45.0544402+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:45.1178884+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-12T21:23:45.5248459+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-12T21:23:45.6566315+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed ViewResult - view "Index" executed in 858.7935ms. (f66409e9)
+2019-07-12T21:23:45.6645510+03:00 0HLO6UNGL0RBE:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1065.9357ms (afa2e885)
+2019-07-12T21:23:45.7231147+03:00 0HLO6UNGL0RBE:00000002 [INF] Request finished in 1236.3649ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-12T21:23:46.1856882+03:00 0HLO6UNGL0RB9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/categories.css?v=wDvTqa9KnVSv4Tkp9_XeC7Dp1bpRdpI30l4AkgmVaO0   (ca22a1cb)
+2019-07-12T21:23:46.2789241+03:00 0HLO6UNGL0RBD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-12T21:23:46.2828379+03:00 0HLO6UNGL0RB9:00000002 [INF] The file "/css/categories.css" was not modified (f1f8d725)
+2019-07-12T21:23:46.3180042+03:00 0HLO6UNGL0RB9:00000002 [INF] Request finished in 117.5217ms 304 text/css (791a596a)
+2019-07-12T21:23:46.3180191+03:00 0HLO6UNGL0RBD:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:23:46.3352240+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:23:46.3471118+03:00 0HLO6UNGL0RBD:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-12T21:23:46.3518320+03:00 0HLO6UNGL0RBD:00000002 [INF] Authorization was successful. (0d575a54)
+2019-07-12T21:23:46.3637710+03:00 0HLO6UNGL0RBD:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-12T21:23:46.3790482+03:00 0HLO6UNGL0RBF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/admincontent.css?v=52vtMuXtfHLkxOybZ1oaK2YWwp8AHK_G-U_vA8SKPtQ   (ca22a1cb)
+2019-07-12T21:23:46.3829052+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-12T21:23:46.4016564+03:00 0HLO6UNGL0RBD:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-12T21:23:46.4064611+03:00 0HLO6UNGL0RBF:00000002 [INF] The file "/css/admincontent.css" was not modified (f1f8d725)
+2019-07-12T21:23:46.4218001+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6404ms. (50a9e262)
+2019-07-12T21:23:46.5265069+03:00 0HLO6UNGL0RBD:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-12T21:23:46.5567278+03:00 0HLO6UNGL0RBF:00000002 [INF] Request finished in 129.6762ms 304 text/css (791a596a)
+2019-07-12T21:23:46.5709336+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:46.6583886+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id] DESC, [c.Products].[Id]" (0723d8ff)
+2019-07-12T21:23:46.6839348+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0] DESC, [t1].[Id]" (0723d8ff)
+2019-07-12T21:23:46.6984837+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:46.7096048+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:46.7181013+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id] DESC, [c.Products].[Id]" (0723d8ff)
+2019-07-12T21:23:46.7259167+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0] DESC, [t1].[Id]" (0723d8ff)
+2019-07-12T21:23:46.7366942+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id] DESC" (0723d8ff)
+2019-07-12T21:23:46.8109589+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("46"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-12T21:23:46.8203088+03:00 0HLO6UNGL0RBH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/dashboard.css?v=1_gyNwtNMiVhTvFiOqMm9s0ib3YiTVDV08E9DjHtivs   (ca22a1cb)
+2019-07-12T21:23:46.8287901+03:00 0HLO6UNGL0RBG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/users.css?v=nxHD5DGuaoDnHfcC-M3wSBT2XID8fogSkooIIDjnZMA   (ca22a1cb)
+2019-07-12T21:23:46.8370209+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-12T21:23:46.8767507+03:00 0HLO6UNGL0RBH:00000002 [INF] The file "/css/dashboard.css" was not modified (f1f8d725)
+2019-07-12T21:23:46.9183269+03:00 0HLO6UNGL0RBH:00000002 [INF] Request finished in 99.5906ms 304 text/css (791a596a)
+2019-07-12T21:23:46.9521935+03:00 0HLO6UNGL0RBG:00000002 [INF] The file "/css/users.css" was not modified (f1f8d725)
+2019-07-12T21:23:47.3287946+03:00 0HLO6UNGL0RBG:00000002 [INF] Request finished in 269.4196ms 304 text/css (791a596a)
+2019-07-12T21:23:47.9508217+03:00 0HLO6UNGL0RBC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/font/roboto/Roboto-Regular.woff2   (ca22a1cb)
+2019-07-12T21:23:48.3201572+03:00 0HLO6UNGL0RBA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/font/roboto/Roboto-Light.woff2   (ca22a1cb)
+2019-07-12T21:23:48.3494947+03:00 0HLO6UNGL0RBJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/addons/datatables.min.js   (ca22a1cb)
+2019-07-12T21:23:48.3811627+03:00 0HLO6UNGL0RBL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/filteroptions.js?v=xk3-dZDStGeJmLlsf1ibIfcRBrKakRTR5gHoAvk_eA4   (ca22a1cb)
+2019-07-12T21:23:48.4191783+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed ViewResult - view "Index" executed in 1893.403ms. (f66409e9)
+2019-07-12T21:23:48.4920720+03:00 0HLO6UNGL0RBD:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 2075.2933ms (afa2e885)
+2019-07-12T21:23:48.5559217+03:00 0HLO6UNGL0RBL:00000001 [INF] The file "/js/filteroptions.js" was not modified (f1f8d725)
+2019-07-12T21:23:48.6145845+03:00 0HLO6UNGL0RBL:00000001 [INF] Request finished in 233.7759ms 304 application/javascript (791a596a)
+2019-07-12T21:23:48.6174543+03:00 0HLO6UNGL0RBD:00000002 [INF] Request finished in 2317.5095ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-12T21:23:48.7985646+03:00 0HLO6UNGL0RBB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=8vsmXYMduWn2wICjt7Y9YzLZBALcrqRqLn3SqlAFwRc   (ca22a1cb)
+2019-07-12T21:23:48.8478719+03:00 0HLO6UNGL0RBJ:00000001 [INF] The file "/lib/mdbootstrap/js/addons/datatables.min.js" was not modified (f1f8d725)
+2019-07-12T21:23:49.0682573+03:00 0HLO6UNGL0RBI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/subcategories.js?v=83i1JhsPHjvWYZZwPMXecxu9TJrZOlt-lUKlGCiOAH0   (ca22a1cb)
+2019-07-12T21:23:49.1129066+03:00 0HLO6UNGL0RBJ:00000001 [INF] Request finished in 712.2474ms 304 application/javascript (791a596a)
+2019-07-12T21:23:49.2533929+03:00 0HLO6UNGL0RBI:00000001 [INF] The file "/js/subcategories.js" was not modified (f1f8d725)
+2019-07-12T21:23:49.2681299+03:00 0HLO6UNGL0RBB:00000002 [INF] Sending file. Request path: '"/js/categories.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\categories.js"' (27b0a520)
+2019-07-12T21:23:49.4870929+03:00 0HLO6UNGL0RBI:00000001 [INF] Request finished in 1072.9829ms 304 application/javascript (791a596a)
+2019-07-12T21:23:49.5445652+03:00 0HLO6UNGL0RBB:00000002 [INF] Request finished in 836.5023ms 200 application/javascript (791a596a)
+2019-07-12T21:23:49.5764397+03:00 0HLO6UNGL0RBG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/mdb.min.js   (ca22a1cb)
+2019-07-12T21:23:49.5852102+03:00 0HLO6UNGL0RBF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/bootstrap.min.js   (ca22a1cb)
+2019-07-12T21:23:49.6262632+03:00 0HLO6UNGL0RBH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/adminpanel.js?v=BVpG2kI0dohVj-sfo79q0BEflfr6sZuq6kFWV-fJsEU   (ca22a1cb)
+2019-07-12T21:23:49.6322536+03:00 0HLO6UNGL0RBG:00000003 [INF] The file "/lib/mdbootstrap/js/mdb.min.js" was not modified (f1f8d725)
+2019-07-12T21:23:49.6455169+03:00 0HLO6UNGL0RBF:00000003 [INF] The file "/lib/mdbootstrap/js/bootstrap.min.js" was not modified (f1f8d725)
+2019-07-12T21:23:49.8320536+03:00 0HLO6UNGL0RBG:00000003 [INF] Request finished in 1410.882ms 304 application/javascript (791a596a)
+2019-07-12T21:23:49.8357626+03:00 0HLO6UNGL0RBF:00000003 [INF] Request finished in 1515.6136ms 304 application/javascript (791a596a)
+2019-07-12T21:23:49.8956414+03:00 0HLO6UNGL0RBH:00000003 [INF] The file "/js/adminpanel.js" was not modified (f1f8d725)
+2019-07-12T21:23:49.9042652+03:00 0HLO6UNGL0RBA:00000003 [INF] The file "/lib/mdbootstrap/font/roboto/Roboto-Light.woff2" was not modified (f1f8d725)
+2019-07-12T21:23:50.1500812+03:00 0HLO6UNGL0RBH:00000003 [INF] Request finished in 1674.7285ms 304 application/javascript (791a596a)
+2019-07-12T21:23:50.1628381+03:00 0HLO6UNGL0RBA:00000003 [INF] Request finished in 2365.6161ms 304 font/woff2 (791a596a)
+2019-07-12T21:23:50.2285071+03:00 0HLO6UNGL0RB9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/products.js?v=KuyIJr-1mY2NKaQaSEund8rW3VrYt1En5HyNx0wCyZw   (ca22a1cb)
+2019-07-12T21:23:50.4044194+03:00 0HLO6UNGL0RBC:00000002 [INF] The file "/lib/mdbootstrap/font/roboto/Roboto-Regular.woff2" was not modified (f1f8d725)
+2019-07-12T21:23:50.4888532+03:00 0HLO6UNGL0RB9:00000003 [INF] The file "/js/products.js" was not modified (f1f8d725)
+2019-07-12T21:23:50.5649133+03:00 0HLO6UNGL0RBC:00000002 [INF] Request finished in 2974.7093ms 304 font/woff2 (791a596a)
+2019-07-12T21:23:50.5932133+03:00 0HLO6UNGL0RBE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/jquery-3.4.1.min.js   (ca22a1cb)
+2019-07-12T21:23:50.6030299+03:00 0HLO6UNGL0RB9:00000003 [INF] Request finished in 2458.5854ms 304 application/javascript (791a596a)
+2019-07-12T21:23:50.6319152+03:00 0HLO6UNGL0RBK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/popper.min.js   (ca22a1cb)
+2019-07-12T21:23:50.6484187+03:00 0HLO6UNGL0RBE:00000003 [INF] The file "/lib/mdbootstrap/js/jquery-3.4.1.min.js" was not modified (f1f8d725)
+2019-07-12T21:23:50.6751122+03:00 0HLO6UNGL0RBK:00000001 [INF] The file "/lib/mdbootstrap/js/popper.min.js" was not modified (f1f8d725)
+2019-07-12T21:23:50.8308262+03:00 0HLO6UNGL0RBE:00000003 [INF] Request finished in 2275.8656ms 304 application/javascript (791a596a)
+2019-07-12T21:23:50.8764969+03:00 0HLO6UNGL0RBM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/dashboard.js?v=my_WRFsXMlp9_QPZXJAiA9bitl7Fl6iJqt8QpQzO9s8   (ca22a1cb)
+2019-07-12T21:23:50.8812615+03:00 0HLO6UNGL0RBK:00000001 [INF] Request finished in 2490.1817ms 304 application/javascript (791a596a)
+2019-07-12T21:23:51.0813568+03:00 0HLO6UNGL0RBM:00000001 [INF] The file "/js/dashboard.js" was not modified (f1f8d725)
+2019-07-12T21:23:51.3381134+03:00 0HLO6UNGL0RBM:00000001 [INF] Request finished in 2880.5714ms 304 application/javascript (791a596a)
+2019-07-12T21:23:51.4711918+03:00 0HLO6UNGL0RBL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/manifest.json   (ca22a1cb)
+2019-07-12T21:23:51.8010133+03:00 0HLO6UNGL0RBL:00000002 [INF] The file "/manifest.json" was not modified (f1f8d725)
+2019-07-12T21:23:51.8512122+03:00 0HLO6UNGL0RBL:00000002 [INF] Request finished in 370.1413ms 304 application/json (791a596a)

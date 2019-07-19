@@ -1,0 +1,95 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product Preview";
+}
+
+<div id="product_preview_container" class="container-fluid m-2 p-2">
+    <div class="row">
+        <div id="images_container" class="col-lg-4 col-md-12 col-sm-12">
+            <div id="lightgallery" class="m-1 p-1">
+                @if (Model.Images.Count() == 0)
+                {
+                    <a href="~/images/products/default.jpg">
+                        <img src="~/images/products/default.jpg" class="img-fluid d-block mx-auto" width="500" height="300" />
+                    </a>
+                }
+                else
+                {
+                    Image previewImage = Model.Images.FirstOrDefault(i => i.ForPreview);
+                    @if (previewImage != null)
+                    {
+                        <a href="@previewImage.Url">
+                            <img src="@previewImage.Url" class="img-fluid d-block mx-auto" width="500" height="300" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Model.Images.FirstOrDefault().Url">
+                            <img src="@Model.Images.FirstOrDefault().Url" class="img-fluid d-block mx-auto" width="500" height="300" />
+                        </a>
+                    }
+                    @foreach (Image img in Model.Images.Where(i => !i.ForPreview))
+                    {
+                        <a href="@img.Url">
+                            <img src="@img.Url" width="90" height="90" />
+                        </a>
+
+                    }
+
+                }
+            </div>
+            
+        </div>
+        <div class="product_review col-lg-8 col-md-10 col-sm-12">
+            <h3 class="text-center">@Model.Name</h3>
+            <p class="badge-info badge-pill price"><span>$</span>@Model.Price</p>
+            <p class="stock_amount">
+                @if (Model.AmountInStock != 0)
+                {
+                    <span class="badge-warning badge-pill">In Stock: @Model.AmountInStock pcs </span>
+                }
+                else
+                {
+                    <span class="badge-danger badge-pill">No product in stock</span>
+                }
+
+            </p>
+            <ul class="description">
+                @{ IEnumerable<string> descriptionLines = Model.Description.Split(new[] { Environment.NewLine }, StringSplitOptions.None);}
+                @foreach (string line in descriptionLines)
+                {
+                    <li>@line</li>
+                }
+            </ul>
+            <form id="addToCartForm">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="productId" value="@Model.Id" />
+                <div class="text-center m-2 p-2">
+                    <button type="button" class="btn btn-outline-success cart_btn" onclick="addToCart(@Model.Id)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </form>
+            
+
+            <div class="specifications_table">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Category</th>
+                        <td>@Model.Category.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Subcategory</th>
+                        <td>@Model.Subcategory.Name</td>
+                    </tr>
+                    @foreach (ProductProperty prop in Model.Properties)
+                    {
+                        <tr>
+                            <th>@prop.Name</th>
+                            <td>@prop.Value</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

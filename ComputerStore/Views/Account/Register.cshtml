@@ -1,0 +1,133 @@
+﻿@model RegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" asp-href-include="~/lib/fontawesome/css/*.css" />
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card col-md-8">
+                <div class="card-header">
+                    <h3>Create Account</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Register" method="post">
+                        <div class="container m-0 p-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="FirstName"></span></div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input class="form-control" asp-for="FirstName" placeholder="First name*" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="LastName"></span></div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                            </div>
+                                            <input class="form-control" asp-for="LastName" placeholder="Last name" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="SecurityQuestion"></span></div>
+                                        <select class="form-control" asp-for="SecurityQuestion" asp-items="@{
+                                new List<SelectListItem>() {
+                                    new SelectListItem {Text = "Select secret question", Value = "", Selected = true},
+                                    new SelectListItem {Text = "What is your favourite colour?", Value = "What is your favourite colour?"},
+                                    new SelectListItem {Text = "What is your pet's name?", Value = "What is your pet's name?"},
+                                    new SelectListItem {Text = "What is name of your favourite book?", Value = "What is name of your favourite book?"},
+                                    new SelectListItem {Text = "What is your favourite movie?", Value = "What is your favourite movie?"},
+                                    new SelectListItem {Text = "What was your childhood nickname?", Value = "What was your childhood nickname?"}
+                                }
+                                    }"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="SecurityQuestionAnswer"></span></div>
+                                        <input type="text" class="form-control" asp-for="SecurityQuestionAnswer" placeholder="Answer*" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="Username"></span></div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                                            </div>
+                                            <input class="form-control" id="username-input" data-toggle="popover" asp-for="Username" placeholder="Username*" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="Email"></span></div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            </div>
+                                            <input class="form-control" asp-for="Email" placeholder="Email*" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message"><span asp-validation-for="Password"></span></div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                            </div>
+                                            <input class="form-control" id="password-input" data-toggle="popover" asp-for="Password" placeholder="Password*" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="error_message">
+                                            <span asp-validation-for="ConfirmPassword"></span>
+                                            <span id="password_error"></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                                            </div>
+                                            <input class="form-control" id="confirmPassword" asp-for="ConfirmPassword" placeholder="Confirm password*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="require_message">
+                                        <span>* indicates required field</span>
+                                    </div>
+                                    <div class="form-group btn-container">
+                                        <button type="submit" class="btn register-btn">Register</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div style="float: left;"><span>Back to <a asp-action="Login" asp-controller="Account">Sign In</a></span></div>
+                    <div style="float: right;"><span>Back to <a asp-action="Index" asp-controller="Home">Home Page</a></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/src/jquery.validate.unobtrusive.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/register.js" asp-append-version="true"></script>
+</body>
+</html>

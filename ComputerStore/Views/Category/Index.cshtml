@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "Manage Categories";
+    
+}
+
+<div class="container categories_container">
+    <div class="row justify-content-center mt-2">
+        <div class="col-sm-8 m-1 p-1">
+            <form class="categoryForm">
+                @Html.AntiForgeryToken()
+                <div class="md-form form-group">
+                    <div class="category_name_error text-danger font-weight-bold d-flex justify-content-center m-1 p-1"></div>
+                    <div class="d-flex justify-content-center">
+                        <input type="text" class="form-control category_name" placeholder="New Category"/>
+                    </div>
+                </div>
+                <div class="md-form form-group text-center">
+                    <button type="button" class="btn btn-deep-purple add_category_btn">Add Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-sm-8 m-1 p-1">
+            
+                <h3 class="text-center">No category was found!</h3>
+                <div class="m-1 p-1">
+                    <p class="text-center" style="font-style:italic;">
+                        <b>TIP</b>* Click on category name in table to make it editable.
+                    </p>
+                </div>
+                <table class="table category_table table-sm table-bordered  table-hover table-responsive-sm bg-white">
+                    <thead style="background-color: #FF6F61; color: white;">
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Category c in Model)
+                        {
+                            id = id + 1;
+                            <tr class="text-center" data-rowid="@c.Id">
+                                <td>@id</td>
+                                <td>
+                                    <input type="text" class="category_edit_input" onfocus="$(this).prop('readonly', false)" onblur="editCategory($(this), @c.Id)" onkeyup="if (event.keyCode == 13) {editCategory($(this), @c.Id); $(this).prop('readonly', true);}" value="@c.Name" />
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="@("#categoryModal" + id)">Delete</button>
+                                    <div id="@("categoryModal" + id)" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                                            <div class="modal-content text-center">
+                                                <div class="modal-header d-flex justify-content-center bg-danger text-white">
+                                                    <h4 class="text-center">Are you sure?</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <i class="fas fa-times fa-4x animated rotateIn"></i>
+                                                </div>
+                                                <div class="modal-footer text-center">
+                                                    <button class="btn btn-danger" onclick="deleteCategory(@c.Id)" data-dismiss="modal">Delete</button>
+                                                    <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body {
+    margin: 0;
+    height: 100%;
+    background-color: #F5D6C6;
+}
+.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: darkgrey;
+}
+#btn_return {font-size: 20px;}
+#message1 {
+    font-weight: 900;
+    font-size: 5rem;
+}
+#message2 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+@media screen and (max-width: 900px) {
+    img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #message1 {font-size: 3rem;}
+    #message2 {font-size: 1.5rem;}
+    #btn_return {font-size: 18px;}
+    img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}

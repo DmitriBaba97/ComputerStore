@@ -1,0 +1,151 @@
+2019-06-13T23:50:26.8520390+03:00 0HLNG831IKMGQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-13T23:50:26.8508678+03:00 0HLNG831IKMGR:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-13T23:50:27.3991116+03:00 0HLNG831IKMGR:00000001 [INF] Request finished in 474.3677ms 200  (791a596a)
+2019-06-13T23:50:31.1736098+03:00 0HLNG831IKMGQ:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-13T23:50:32.6330166+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("304"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-13T23:50:33.8639695+03:00 0HLNG831IKMGQ:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-13T23:50:34.2804211+03:00 0HLNG831IKMGQ:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-13T23:50:34.5448673+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("90"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-13T23:50:34.6729577+03:00 0HLNG831IKMGQ:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-13T23:50:34.9166324+03:00 0HLNG831IKMGQ:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 124.8955ms. (50a9e262)
+2019-06-13T23:50:35.2697438+03:00 0HLNG831IKMGQ:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-13T23:50:36.3535070+03:00 0HLNG831IKMGQ:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-13T23:50:36.3666940+03:00 0HLNG831IKMGQ:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-13T23:50:36.3740373+03:00 0HLNG831IKMGQ:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-13T23:50:36.3792345+03:00 0HLNG831IKMGQ:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-13T23:50:37.3892680+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("75"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-13T23:50:37.5169121+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-13T23:50:38.8573336+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-13T23:50:38.9471527+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-13T23:50:39.0625464+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-13T23:50:39.1001076+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-13T23:50:39.5095866+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("63"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-13T23:50:40.0486781+03:00 0HLNG831IKMGQ:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-13T23:50:40.4155409+03:00 0HLNG831IKMGQ:00000001 [INF] Executed ViewResult - view "Index" executed in 5396.4555ms. (f66409e9)
+2019-06-13T23:50:40.4551108+03:00 0HLNG831IKMGQ:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 6577.9858ms (afa2e885)
+2019-06-13T23:50:40.7555735+03:00 0HLNG831IKMGQ:00000001 [INF] Request finished in 13895.5119ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-13T23:58:18.6041380+03:00 0HLNG87E718U7:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-13T23:58:18.6041329+03:00 0HLNG87E718U6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-13T23:58:19.1706603+03:00 0HLNG87E718U7:00000001 [INF] Request finished in 561.5831ms 200  (791a596a)
+2019-06-13T23:58:21.7409918+03:00 0HLNG87E718U6:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-13T23:58:24.4863206+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("199"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-13T23:58:25.8389275+03:00 0HLNG87E718U6:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-13T23:58:26.2864034+03:00 0HLNG87E718U6:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-13T23:58:26.4151292+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-13T23:58:26.4577914+03:00 0HLNG87E718U6:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-13T23:58:26.5151829+03:00 0HLNG87E718U6:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 40.1002ms. (50a9e262)
+2019-06-13T23:58:26.7393675+03:00 0HLNG87E718U6:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-13T23:58:28.4236108+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("102"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-13T23:58:28.5499148+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-13T23:58:30.2516749+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-13T23:58:30.3340266+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-13T23:58:30.4623457+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-13T23:58:30.4918740+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-13T23:58:30.8784126+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("65"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-13T23:58:31.2371934+03:00 0HLNG87E718U6:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-13T23:58:31.8404034+03:00 0HLNG87E718U6:00000001 [INF] Executed ViewResult - view "Index" executed in 5215.9905ms. (f66409e9)
+2019-06-13T23:58:31.9871403+03:00 0HLNG87E718U6:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 6070.8368ms (afa2e885)
+2019-06-13T23:58:32.2953497+03:00 0HLNG87E718U6:00000001 [INF] Request finished in 13690.9607ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-13T23:58:33.9982619+03:00 0HLNG87E718U7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/favicon.ico   (ca22a1cb)
+2019-06-13T23:58:34.0760436+03:00 0HLNG87E718U7:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-13T23:58:34.1369029+03:00 0HLNG87E718U7:00000002 [INF] Executed DbCommand ("53"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-13T23:58:34.2510985+03:00 0HLNG87E718U7:00000002 [INF] Request finished in 345.8716ms 404 text/plain (791a596a)

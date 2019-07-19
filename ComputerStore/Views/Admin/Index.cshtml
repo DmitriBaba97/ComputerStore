@@ -1,0 +1,289 @@
+﻿@inject UserManager<AppUser> UserManager
+@inject IProductRepository productRepos
+@inject IOrderRepository orderRepos
+@{
+    ViewData["Title"] = "Dashboard";
+    var latestUsers = UserManager.Users.OrderByDescending(u => u.DateCreated).Take(9);
+}
+
+<div class="dashboard_container container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget" style="background-color: #FF6F61; ">
+            <div class="headers">
+                <h4 class="align-items-start">Products</h4>
+                <h1 class="align-items-center">@productRepos.Products.Count()</h1>
+                <h6 class="align-items-end">
+                    @{int numOfNewProducts = productRepos.Products.Where(p => p.DateCreated == DateTime.Today).Count();}
+                    @if (numOfNewProducts == 0)
+                    {
+                        <span>0</span>
+                    }
+                    else
+                    {
+                        <span>@numOfNewProducts</span>
+                    }
+                    New Products
+                </h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-desktop fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget bg-primary">
+            <div class="headers">
+                <h4 class="align-items-start">Orders</h4>
+                <h1 class="align-items-center">@orderRepos.Orders.Count()</h1>
+                <h6 class="align-items-end">
+                    @{ int numOfNewOrders = orderRepos.Orders.Where(o => o.DateCreated == DateTime.Today).Count();}
+                    @if (numOfNewOrders == 0)
+                    {
+                        <span>0</span>
+                    } else
+                    {
+                        <span>@numOfNewOrders</span>
+                    }
+                    New Orders
+                </h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-file fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget bg-warning">
+            <div class="headers">
+                <h4 class="align-items-start">Users</h4>
+                <h1 class="align-items-center">@UserManager.Users.Count()</h1>
+                <h6 class="align-items-end">
+                    @{ int numOfNewUsers = UserManager.Users.Where(u => u.DateCreated == DateTime.Today).Count();}
+                    @if (numOfNewUsers == 0)
+                    {
+                        <span>0</span>
+                    } else
+                    {
+                        <span>@numOfNewUsers</span>
+                    }
+                    New Users
+                </h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-user fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget bg-danger">
+            <div class="headers">
+                <h4 class="align-items-start"> Visitors</h4>
+                <h1 class="align-items-center">250</h1>
+                <h6 class="align-items-end">25 New Visitors</h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-users fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget" style="background-color: #6B5B95;">
+            <div class="headers">
+                <h4 class="align-items-start"> Income</h4>
+                <h1 class="align-items-center">$35,000</h1>
+                <h6 class="align-items-end">
+                    @{ decimal todayIncome = orderRepos.Orders.Where(o => o.DateCreated == DateTime.Today).Select(o => o.TotalPrice).Sum(); }
+                   $@todayIncome Today
+                </h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-dollar-sign fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 info_widget" style="background-color: #264E36">
+            <div class="headers">
+                <h4 class="align-items-start"> Stock</h4>
+                <h1 class="align-items-center">@productRepos.Products.Select(p => p.AmountInStock).Sum()</h1>
+                <h6 class="align-items-end">
+                    @{ var numOfEmptyProductLines = productRepos.Products.Where(p => p.AmountInStock == 0).Count(); }
+                    @if (numOfEmptyProductLines == 0)
+                    {
+                        <span>0</span>
+                    } else
+                    {
+                        <span>@numOfEmptyProductLines</span>
+                    }
+                    products should be updated!
+                </h6>
+            </div>
+            <div class="icon">
+                <i class="fas fa-database fa-4x"></i>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-12 col-sm-12 position-relative">
+            <canvas id="incomeChart" width="900" height="400"></canvas>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-8 col-sm-12 info_card" style="border-top:2px solid tomato;">
+            <h4 class="heading">Latest Members</h4>
+            <hr />
+            @foreach (AppUser user in latestUsers)
+            {
+            <div class="p-1 float-left text-center" style="margin-left: 30px;">
+                @if (string.IsNullOrEmpty(user.Photo))
+                {
+                    <img src="~/images/users/default.png" width="80" height="80" />
+                }
+                else
+                {
+                    <img src="@user.Photo" width="80" height="80" />
+                }
+
+                <p>
+                    @user.FirstName <br />
+                    @if (user.DateCreated.Date == DateTime.Now.Date)
+                    {
+                        <small>Today</small>
+                    }
+                    else
+                    {
+                        <small> @user.DateCreated.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("en"))</small>
+                    }
+                </p>
+            </div>
+            }
+        </div>
+        <div id="visitors_map" class="col-lg-6 col-md-10 col-sm-12 position-relative">
+            <h4 class="heading position-absolute text-white" style="top: 15px; left: 200px; z-index: 1;">Visitors Map</h4>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8 col-sm-12 info_card" style="border-top: 3px solid orange;">
+            <h4 class="heading">Latest Orders</h4>
+            <table id="latest_orders" class="table table-sm table-striped">
+                <tr class="bg-primary text-white">
+                    <th>OrderID</th>
+                    <th>Item</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>OR7645</td>
+                    <td>Lenovo IdeaPad 320-15ISK</td>
+                    <td><span class="badge badge-info">Processing</span></td>
+                </tr>
+                <tr>
+                    <td>OR2845</td>
+                    <td>Asus Vivobook S15 S530UN</td>
+                    <td><span class="badge badge-danger">Delivered</span></td>
+                </tr>
+                <tr>
+                    <td>OR7849</td>
+                    <td>Asus X507MA</td>
+                    <td><span class="badge badge-info">Processing</span></td>
+                </tr>
+                <tr>
+                    <td>OR5625</td>
+                    <td>HP ProBook 450 G5</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>OR2358</td>
+                    <td>Dell Inspiron 3552</td>
+                    <td><span class="badge badge-success">Shipped</span></td>
+                </tr>
+                <tr>
+                    <td>OR7375</td>
+                    <td>Asus VivoBook S510UF</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>OR12589</td>
+                    <td>Acer Aspire A315-53G</td>
+                    <td><span class="badge badge-info">Processing</span></td>
+                </tr>
+                <tr>
+                    <td>OR17645</td>
+                    <td>Lenovo IdeaPad 330-17IKB</td>
+                    <td><span class="badge badge-danger">Delivered</span></td>
+                </tr>
+                <tr>
+                    <td>OR7235</td>
+                    <td>HP 250 G6</td>
+                    <td><span class="badge badge-info">Processing</span></td>
+                </tr>
+                <tr>
+                    <td>OR3857</td>
+                    <td>Asus VivoBook X542UF</td>
+                    <td><span class="badge badge-danger">Delivered</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-5 col-md-8 col-sm-12 info_card" style="border-top: 3px solid blue;">
+            <h4 class="heading">Top 10 Sold Products</h4>
+            <table id="top_products" class="table table-sm table-striped">
+                <tr class="bg-warning">
+                    <th>ProductID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Remainings</th>
+                </tr>
+                <tr>
+                    <td>P12576</td>
+                    <td>Asus VivoBook S15 S530UA</td>
+                    <td>530$</td>
+                    <td>230</td>
+                </tr>
+                <tr>
+                    <td>P15366</td>
+                    <td>Apple MacBook Air 13 MQD32</td>
+                    <td>1055$</td>
+                    <td>56</td>
+                </tr>
+                <tr>
+                    <td>P34982</td>
+                    <td>Xiaomi Air 13.3</td>
+                    <td>940$</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>P19756</td>
+                    <td>Apple MacBook Pro 15 MR972</td>
+                    <td>3270$</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>P48590</td>
+                    <td>Asus ZenBook S UX391UA</td>
+                    <td>1330$</td>
+                    <td>134</td>
+                </tr>
+                <tr>
+                    <td>P37456</td>
+                    <td>Asus VivoBook X542UF</td>
+                    <td>770$</td>
+                    <td>215</td>
+                </tr>
+                <tr>
+                    <td>P17384</td>
+                    <td>Asus ZenBook UX433FA</td>
+                    <td>1500$</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>P23975</td>
+                    <td>Asus ZenBook Pro UX580GD</td>
+                    <td>2770$</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>P28465</td>
+                    <td>Acer Predator Helios PH315-51</td>
+                    <td>1500$</td>
+                    <td>104</td>
+                </tr>
+                <tr>
+                    <td>P35467</td>
+                    <td>Acer Nitro AN515-31</td>
+                    <td>980$</td>
+                    <td>144</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

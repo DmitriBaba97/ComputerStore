@@ -1,0 +1,1455 @@
+2019-06-30T10:55:47.7830493+03:00 0HLNT61E60113:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-30T10:55:47.7830404+03:00 0HLNT61E60112:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-30T10:55:48.6170779+03:00 0HLNT61E60113:00000001 [INF] Request finished in 834.4214ms 200  (791a596a)
+2019-06-30T10:55:51.4959346+03:00 0HLNT61E60112:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-30T10:55:55.2838178+03:00 0HLNT61E60112:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:08.3923406+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("434"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:08.4760298+03:00 0HLNT61E60112:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T10:56:08.6576088+03:00 0HLNT61E60112:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 96.0496ms. (50a9e262)
+2019-06-30T10:56:09.0057962+03:00 0HLNT61E60112:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T10:56:10.2471201+03:00 0HLNT61E60112:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:10.3326972+03:00 0HLNT61E60112:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:10.3630964+03:00 0HLNT61E60112:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:10.3782943+03:00 0HLNT61E60112:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:11.9110069+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("168"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-30T10:56:12.1591767+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("36"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-30T10:56:13.4581037+03:00 0HLNT61E60112:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:15.1017519+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("660"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:17.1918851+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("38"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-30T10:56:17.3428659+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-30T10:56:17.5713033+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-30T10:56:17.6727166+03:00 0HLNT61E60112:00000001 [INF] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-30T10:56:18.7054335+03:00 0HLNT61E60112:00000001 [INF] Executed ViewResult - view "Index" executed in 9814.2704ms. (f66409e9)
+2019-06-30T10:56:18.8023134+03:00 0HLNT61E60112:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 27215.0237ms (afa2e885)
+2019-06-30T10:56:19.4684163+03:00 0HLNT61E60112:00000001 [INF] Request finished in 31550.3279ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T10:56:28.0948830+03:00 0HLNT61E60113:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T10:56:28.2755280+03:00 0HLNT61E60113:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T10:56:28.9282976+03:00 0HLNT61E60113:00000002 [INF] Authorization failed. (b15dd539)
+2019-06-30T10:56:29.4303350+03:00 0HLNT61E60113:00000002 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-06-30T10:56:29.5441309+03:00 0HLNT61E60113:00000002 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-06-30T10:56:29.7086859+03:00 0HLNT61E60113:00000002 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-06-30T10:56:29.8484084+03:00 0HLNT61E60113:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1432.7666ms (afa2e885)
+2019-06-30T10:56:30.2094522+03:00 0HLNT61E60113:00000002 [INF] Request finished in 2162.986ms 302  (791a596a)
+2019-06-30T10:56:30.2205681+03:00 0HLNT61E60112:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Account/Login?ReturnUrl=%2Fadmin%2Fcategories   (ca22a1cb)
+2019-06-30T10:56:30.4047152+03:00 0HLNT61E60112:00000002 [INF] Route matched with "{action = \"Login\", controller = \"Account\"}". Executing action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" (a44c0341)
+2019-06-30T10:56:30.4359729+03:00 0HLNT61E60112:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:30.5747312+03:00 0HLNT61E60112:00000002 [INF] Executed DbCommand ("105"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:30.9293570+03:00 0HLNT61E60112:00000002 [INF] Executing action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)" with arguments (["/admin/categories"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:56:30.9457679+03:00 0HLNT61E60112:00000002 [INF] Executed action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6344ms. (50a9e262)
+2019-06-30T10:56:31.0521864+03:00 0HLNT61E60112:00000002 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-06-30T10:56:31.7097402+03:00 0HLNT61E60112:00000002 [INF] Executed ViewResult - view "Login" executed in 747.7286ms. (f66409e9)
+2019-06-30T10:56:31.7137082+03:00 0HLNT61E60113:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Account/Login?ReturnUrl=%2Fadmin%2Fcategories   (ca22a1cb)
+2019-06-30T10:56:31.7209317+03:00 0HLNT61E60112:00000002 [INF] Executed action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" in 1308.8726ms (afa2e885)
+2019-06-30T10:56:31.7878353+03:00 0HLNT61E60113:00000003 [INF] Route matched with "{action = \"Login\", controller = \"Account\"}". Executing action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" (a44c0341)
+2019-06-30T10:56:31.8148749+03:00 0HLNT61E60113:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:31.8971330+03:00 0HLNT61E60112:00000002 [INF] Request finished in 1593.1086ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T10:56:31.9228448+03:00 0HLNT61E60113:00000003 [INF] Executed DbCommand ("82"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:31.9459911+03:00 0HLNT61E60113:00000003 [INF] Executing action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)" with arguments (["/admin/categories"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:56:31.9632178+03:00 0HLNT61E60113:00000003 [INF] Executed action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.023ms. (50a9e262)
+2019-06-30T10:56:31.9740893+03:00 0HLNT61E60113:00000003 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-06-30T10:56:32.2270395+03:00 0HLNT61E60113:00000003 [INF] Executed ViewResult - view "Login" executed in 86.1138ms. (f66409e9)
+2019-06-30T10:56:32.4162899+03:00 0HLNT61E60113:00000003 [INF] Executed action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" in 432.6219ms (afa2e885)
+2019-06-30T10:56:32.6781822+03:00 0HLNT61E60113:00000003 [INF] Request finished in 848.2523ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T10:56:50.7392801+03:00 0HLNT61E60112:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44347/Account/Login application/x-www-form-urlencoded 279 (ca22a1cb)
+2019-06-30T10:56:50.8200222+03:00 0HLNT61E60112:00000003 [INF] Route matched with "{action = \"Login\", controller = \"Account\"}". Executing action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" (a44c0341)
+2019-06-30T10:56:51.1085053+03:00 0HLNT61E60112:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:51.1482344+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:51.3173244+03:00 0HLNT61E60112:00000003 [INF] Executing action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)" with arguments (["ComputerStore.Models.ViewModels.LoginViewModel"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:56:51.9701426+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("288"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T10:56:53.0909952+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("280"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T10:56:53.2079269+03:00 0HLNT61E60112:00000003 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2019-06-30T10:56:53.2217129+03:00 0HLNT61E60112:00000003 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-06-30T10:56:53.2291356+03:00 0HLNT61E60112:00000003 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2019-06-30T10:56:53.6784446+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-06-30T10:56:53.7446885+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("14"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T10:56:53.8194752+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-06-30T10:56:53.9380640+03:00 0HLNT61E60112:00000003 [INF] Executed DbCommand ("27"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-06-30T10:56:54.0989740+03:00 0HLNT61E60112:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-06-30T10:56:54.1323927+03:00 0HLNT61E60112:00000003 [INF] Executed action method "ComputerStore.Controllers.AccountController.Login (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 2799.1676ms. (50a9e262)
+2019-06-30T10:56:54.1900849+03:00 0HLNT61E60112:00000003 [INF] Executing RedirectResult, redirecting to "/admin/categories". (d98d540e)
+2019-06-30T10:56:54.2089935+03:00 0HLNT61E60112:00000003 [INF] Executed action "ComputerStore.Controllers.AccountController.Login (ComputerStore)" in 3376.1828ms (afa2e885)
+2019-06-30T10:56:54.4981055+03:00 0HLNT61E60112:00000003 [INF] Request finished in 3722.8104ms 302  (791a596a)
+2019-06-30T10:56:54.5747601+03:00 0HLNT61E60113:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T10:56:54.6359523+03:00 0HLNT61E60113:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:54.6499010+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:54.6755057+03:00 0HLNT61E60113:00000004 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T10:56:54.6817376+03:00 0HLNT61E60113:00000004 [INF] Authorization was successful. (0d575a54)
+2019-06-30T10:56:54.6923744+03:00 0HLNT61E60113:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:56:54.7365460+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("38"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:56:54.7429994+03:00 0HLNT61E60113:00000004 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T10:56:54.7718169+03:00 0HLNT61E60113:00000004 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:54.7821773+03:00 0HLNT61E60113:00000004 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:54.8820396+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T10:56:54.9141037+03:00 0HLNT61E60113:00000004 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 144.4435ms. (50a9e262)
+2019-06-30T10:56:54.9833948+03:00 0HLNT61E60113:00000004 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T10:56:55.1188503+03:00 0HLNT61E60113:00000004 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T10:56:55.1282681+03:00 0HLNT61E60113:00000004 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:55.1334985+03:00 0HLNT61E60113:00000004 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:56:55.1478470+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T10:56:55.2523643+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T10:56:55.2652219+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T10:56:55.3772980+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T10:56:55.7620407+03:00 0HLNT61E60113:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T10:56:56.4814151+03:00 0HLNT61E60114:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/admincontent.css?v=MYBrsX-ehdjkMS3-DxN5jO_pXQAXVZC2ed9bABa_9fw   (ca22a1cb)
+2019-06-30T10:56:56.5820847+03:00 0HLNT61E60117:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/editprofile.css?v=A-X1PJ6ZKi9ol4S15OQ0WgBHWWXqarvjE_2eXZDisTg   (ca22a1cb)
+2019-06-30T10:56:56.5891140+03:00 0HLNT61E60116:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg   (ca22a1cb)
+2019-06-30T10:56:56.6305242+03:00 0HLNT61E60113:00000004 [INF] Executed ViewResult - view "Index" executed in 1687.7643ms. (f66409e9)
+2019-06-30T10:56:56.6714110+03:00 0HLNT61E6011B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/users.js?v=kjp4m014zQqLTDEfsRaFvsN94l066ZsRldGHhs0Sj0g   (ca22a1cb)
+2019-06-30T10:56:56.6827189+03:00 0HLNT61E6011C:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/roles.js?v=uUN2OcEPlMvTQ4YUObBUeF08T-LpAVU6cbpcv9AJzIU   (ca22a1cb)
+2019-06-30T10:56:56.6847746+03:00 0HLNT61E60115:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/pagination.css?v=JT8Dh2fv6HzyAIR8lv8zmJ3_E3DN2jpcmWPbOIvL0Wo   (ca22a1cb)
+2019-06-30T10:56:56.6891608+03:00 0HLNT61E60112:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/categories.css?v=gB7iJSuhQYYjAlJfh2Y5U0K1ZIJtPj1XJyzMjAWxqMk   (ca22a1cb)
+2019-06-30T10:56:56.7417872+03:00 0HLNT61E60113:00000004 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 2049.3048ms (afa2e885)
+2019-06-30T10:56:56.7483199+03:00 0HLNT61E6011A:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/subcategories.js?v=qyNlLoIQCpk0zXcC84DA7BQGGJQkvYJpZl2b1XFciNQ   (ca22a1cb)
+2019-06-30T10:56:56.7517358+03:00 0HLNT61E60119:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=Fll6oc8OARTsR4H1ezT3R700dgHp1OTO84u_vsex2zA   (ca22a1cb)
+2019-06-30T10:56:56.7806932+03:00 0HLNT61E60118:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=ufXA9YHaGbYqjXWm33KnfzHH5UivytL2WlvODuR8Wmw   (ca22a1cb)
+2019-06-30T10:56:56.8530552+03:00 0HLNT61E60113:00000004 [INF] Request finished in 2299.107ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T10:56:56.8634156+03:00 0HLNT61E6011C:00000001 [INF] The file "/js/roles.js" was not modified (f1f8d725)
+2019-06-30T10:56:56.8838286+03:00 0HLNT61E60117:00000001 [INF] The file "/css/editprofile.css" was not modified (f1f8d725)
+2019-06-30T10:56:56.9075356+03:00 0HLNT61E60116:00000001 [INF] The file "/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg" was not modified (f1f8d725)
+2019-06-30T10:56:56.9223643+03:00 0HLNT61E6011C:00000001 [INF] Request finished in 232.9616ms 304 application/javascript (791a596a)
+2019-06-30T10:56:56.9338656+03:00 0HLNT61E60117:00000001 [INF] Request finished in 432.1752ms 304 text/css (791a596a)
+2019-06-30T10:56:56.9394942+03:00 0HLNT61E60115:00000001 [INF] The file "/css/pagination.css" was not modified (f1f8d725)
+2019-06-30T10:56:56.9585602+03:00 0HLNT61E60116:00000001 [INF] Request finished in 495.7456ms 304 image/jpeg (791a596a)
+2019-06-30T10:56:56.9823649+03:00 0HLNT61E60112:00000004 [INF] The file "/css/categories.css" was not modified (f1f8d725)
+2019-06-30T10:56:56.9903615+03:00 0HLNT61E60115:00000001 [INF] Request finished in 518.6534ms 304 text/css (791a596a)
+2019-06-30T10:56:57.0010482+03:00 0HLNT61E60114:00000001 [INF] The file "/css/admincontent.css" was not modified (f1f8d725)
+2019-06-30T10:56:57.0345212+03:00 0HLNT61E60112:00000004 [INF] Request finished in 553.0334ms 304 text/css (791a596a)
+2019-06-30T10:56:57.0857613+03:00 0HLNT61E6011B:00000001 [INF] The file "/js/users.js" was not modified (f1f8d725)
+2019-06-30T10:56:57.1152803+03:00 0HLNT61E60114:00000001 [INF] Request finished in 605.0898ms 304 text/css (791a596a)
+2019-06-30T10:56:57.1250198+03:00 0HLNT61E6011A:00000001 [INF] The file "/js/subcategories.js" was not modified (f1f8d725)
+2019-06-30T10:56:57.1432633+03:00 0HLNT61E6011B:00000001 [INF] Request finished in 472.7171ms 304 application/javascript (791a596a)
+2019-06-30T10:56:57.1714344+03:00 0HLNT61E6011A:00000001 [INF] Request finished in 493.6388ms 304 application/javascript (791a596a)
+2019-06-30T10:56:57.3137621+03:00 0HLNT61E60119:00000001 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T10:56:57.3963321+03:00 0HLNT61E60118:00000001 [INF] Sending file. Request path: '"/js/categories.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\categories.js"' (27b0a520)
+2019-06-30T10:56:57.4095136+03:00 0HLNT61E60119:00000001 [INF] Request finished in 745.7826ms 200 application/javascript (791a596a)
+2019-06-30T10:56:57.4131560+03:00 0HLNT61E60113:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/manifest.json   (ca22a1cb)
+2019-06-30T10:56:57.4245480+03:00 0HLNT61E60118:00000001 [INF] Request finished in 761.5718ms 200 application/javascript (791a596a)
+2019-06-30T10:56:57.4368335+03:00 0HLNT61E60113:00000005 [INF] The file "/manifest.json" was not modified (f1f8d725)
+2019-06-30T10:56:57.5102229+03:00 0HLNT61E60113:00000005 [INF] Request finished in 71.9544ms 304 application/json (791a596a)
+2019-06-30T10:57:01.4895329+03:00 0HLNT61E6011C:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T10:57:01.5025667+03:00 0HLNT61E6011C:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:01.5369237+03:00 0HLNT61E6011C:00000002 [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:01.5481084+03:00 0HLNT61E6011C:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T10:57:01.5528751+03:00 0HLNT61E6011C:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T10:57:01.5576572+03:00 0HLNT61E6011C:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:01.5887502+03:00 0HLNT61E6011C:00000002 [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:01.5975817+03:00 0HLNT61E6011C:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:57:01.6084938+03:00 0HLNT61E6011C:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 6.2587ms. (50a9e262)
+2019-06-30T10:57:01.6282924+03:00 0HLNT61E6011C:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T10:57:01.8700729+03:00 0HLNT61E6011C:00000002 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T10:57:01.8741074+03:00 0HLNT61E6011C:00000002 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:57:01.8779030+03:00 0HLNT61E6011C:00000002 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T10:57:01.8989809+03:00 0HLNT61E6011C:00000002 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T10:57:01.9845101+03:00 0HLNT61E6011C:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 430.2488ms (afa2e885)
+2019-06-30T10:57:01.9993262+03:00 0HLNT61E6011C:00000002 [INF] Request finished in 508.4834ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T10:57:02.3278366+03:00 0HLNT61E60117:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T10:57:02.3440769+03:00 0HLNT61E60117:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:02.3589241+03:00 0HLNT61E60117:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:02.3641144+03:00 0HLNT61E60117:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T10:57:02.3691073+03:00 0HLNT61E60117:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T10:57:02.3751327+03:00 0HLNT61E60117:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:02.3916490+03:00 0HLNT61E60117:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:02.3988226+03:00 0HLNT61E60117:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:57:02.4069357+03:00 0HLNT61E60117:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.9971ms. (50a9e262)
+2019-06-30T10:57:02.4135601+03:00 0HLNT61E60117:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T10:57:02.4249632+03:00 0HLNT61E60117:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T10:57:02.4320804+03:00 0HLNT61E60117:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 61.5087ms (afa2e885)
+2019-06-30T10:57:02.4456805+03:00 0HLNT61E60117:00000002 [INF] Request finished in 120.8211ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T10:57:04.1312108+03:00 0HLNT61E60116:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T10:57:04.1442511+03:00 0HLNT61E60116:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:04.1552283+03:00 0HLNT61E60116:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:04.1598790+03:00 0HLNT61E60116:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T10:57:04.1637962+03:00 0HLNT61E60116:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T10:57:04.1690694+03:00 0HLNT61E60116:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:04.1837050+03:00 0HLNT61E60116:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:04.1893148+03:00 0HLNT61E60116:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:57:04.1945901+03:00 0HLNT61E60116:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.2521ms. (50a9e262)
+2019-06-30T10:57:04.1996717+03:00 0HLNT61E60116:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T10:57:04.2065973+03:00 0HLNT61E60116:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T10:57:04.2120655+03:00 0HLNT61E60116:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 47.6395ms (afa2e885)
+2019-06-30T10:57:04.2299429+03:00 0HLNT61E60116:00000002 [INF] Request finished in 97.3185ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T10:57:05.3606670+03:00 0HLNT61E60115:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=1   (ca22a1cb)
+2019-06-30T10:57:05.3792812+03:00 0HLNT61E60115:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:05.3939044+03:00 0HLNT61E60115:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:05.3978702+03:00 0HLNT61E60115:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T10:57:05.4025563+03:00 0HLNT61E60115:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T10:57:05.4077556+03:00 0HLNT61E60115:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T10:57:05.4186639+03:00 0HLNT61E60115:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T10:57:05.4228998+03:00 0HLNT61E60115:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-06-30T10:57:05.4280386+03:00 0HLNT61E60115:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.6199ms. (50a9e262)
+2019-06-30T10:57:05.4327579+03:00 0HLNT61E60115:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T10:57:05.4377290+03:00 0HLNT61E60115:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T10:57:05.4426797+03:00 0HLNT61E60115:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 41.3257ms (afa2e885)
+2019-06-30T10:57:05.4561846+03:00 0HLNT61E60115:00000002 [INF] Request finished in 97.8979ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T11:24:25.4199336+03:00 0HLNT6HE3BEL9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-30T11:24:25.4331198+03:00 0HLNT6HE3BELA:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-30T11:24:26.1631298+03:00 0HLNT6HE3BELA:00000001 [INF] Request finished in 774.5549ms 200  (791a596a)
+2019-06-30T11:24:30.0822486+03:00 0HLNT6HE3BEL9:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:24:35.3384935+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("412"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:24:36.9941315+03:00 0HLNT6HE3BEL9:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-30T11:24:37.5127014+03:00 0HLNT6HE3BEL9:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:24:37.7226123+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("57"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:24:37.8002884+03:00 0HLNT6HE3BEL9:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T11:24:37.9545521+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 115.489ms. (50a9e262)
+2019-06-30T11:24:38.2681280+03:00 0HLNT6HE3BEL9:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T11:24:39.8113553+03:00 0HLNT6HE3BEL9:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:24:39.9233277+03:00 0HLNT6HE3BEL9:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:24:39.9524508+03:00 0HLNT6HE3BEL9:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:24:39.9692112+03:00 0HLNT6HE3BEL9:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:24:41.5093171+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("179"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-30T11:24:41.7341396+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("29"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-30T11:24:44.0576341+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-30T11:24:44.2330990+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-30T11:24:44.5132531+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-30T11:24:44.6840386+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("40"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-30T11:24:45.7395289+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("444"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T11:24:46.3455087+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed DbCommand ("73"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T11:24:48.0977664+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed ViewResult - view "Index" executed in 10044.5846ms. (f66409e9)
+2019-06-30T11:24:48.1489286+03:00 0HLNT6HE3BEL9:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 11136.9849ms (afa2e885)
+2019-06-30T11:24:48.7840772+03:00 0HLNT6HE3BEL9:00000001 [INF] Request finished in 23242.8898ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T11:25:09.7460309+03:00 0HLNT6HE3BELA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T11:25:09.9014009+03:00 0HLNT6HE3BELA:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:09.9387616+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("31"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:10.5839629+03:00 0HLNT6HE3BELA:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T11:25:10.7972061+03:00 0HLNT6HE3BELA:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T11:25:10.8030532+03:00 0HLNT6HE3BELA:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:10.8335514+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:10.8398985+03:00 0HLNT6HE3BELA:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T11:25:10.8661530+03:00 0HLNT6HE3BELA:00000002 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:25:10.8733347+03:00 0HLNT6HE3BELA:00000002 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:25:10.9361188+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:10.9504075+03:00 0HLNT6HE3BELA:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 101.2477ms. (50a9e262)
+2019-06-30T11:25:11.0220885+03:00 0HLNT6HE3BELA:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T11:25:11.2547229+03:00 0HLNT6HE3BELA:00000002 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T11:25:11.2635118+03:00 0HLNT6HE3BELA:00000002 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:25:11.2696366+03:00 0HLNT6HE3BELA:00000002 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T11:25:11.2883148+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:11.3599890+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:11.3694618+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:11.4785855+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T11:25:11.7129572+03:00 0HLNT6HE3BELA:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T11:25:11.9825629+03:00 0HLNT6HE3BEL9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin712   (ca22a1cb)
+2019-06-30T11:25:12.0111568+03:00 0HLNT6HE3BEL9:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:12.0540586+03:00 0HLNT6HE3BEL9:00000002 [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:12.3213594+03:00 0HLNT6HE3BEL9:00000002 [INF] Request finished in 301.3923ms 404 text/plain (791a596a)
+2019-06-30T11:25:12.5347503+03:00 0HLNT6HE3BELA:00000002 [INF] Executed ViewResult - view "Index" executed in 1578.7478ms. (f66409e9)
+2019-06-30T11:25:12.5411618+03:00 0HLNT6HE3BELA:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1951.8552ms (afa2e885)
+2019-06-30T11:25:12.5823369+03:00 0HLNT6HE3BELA:00000002 [INF] Request finished in 2859.0939ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T11:25:12.7906465+03:00 0HLNT6HE3BEL9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=DECbq4snBD3yhfsqxShj3K1wB2I9aiuTShYgSJ2-KmU   (ca22a1cb)
+2019-06-30T11:25:12.8034564+03:00 0HLNT6HE3BELA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=nkZqL3E-_9DpuI3ZWuM4HhS3zDdcYizdvq_K7Fj7jaQ   (ca22a1cb)
+2019-06-30T11:25:13.0066401+03:00 0HLNT6HE3BELA:00000003 [INF] Sending file. Request path: '"/js/categories.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\categories.js"' (27b0a520)
+2019-06-30T11:25:13.0105932+03:00 0HLNT6HE3BEL9:00000003 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T11:25:13.0407035+03:00 0HLNT6HE3BELA:00000003 [INF] Request finished in 231.6381ms 200 application/javascript (791a596a)
+2019-06-30T11:25:13.0426973+03:00 0HLNT6HE3BEL9:00000003 [INF] Request finished in 249.1622ms 200 application/javascript (791a596a)
+2019-06-30T11:25:16.2710557+03:00 0HLNT6HE3BELA:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T11:25:16.3137540+03:00 0HLNT6HE3BELA:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:16.3871084+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:16.4218583+03:00 0HLNT6HE3BELA:00000004 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T11:25:16.4506439+03:00 0HLNT6HE3BELA:00000004 [INF] Authorization was successful. (0d575a54)
+2019-06-30T11:25:16.4823397+03:00 0HLNT6HE3BELA:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:16.5292573+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("39"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:16.5385347+03:00 0HLNT6HE3BELA:00000004 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T11:25:16.5509065+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:16.5586040+03:00 0HLNT6HE3BELA:00000004 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 13.0479ms. (50a9e262)
+2019-06-30T11:25:16.5684681+03:00 0HLNT6HE3BELA:00000004 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T11:25:16.5893133+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:16.6097810+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:16.6216035+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:16.6453868+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("15"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T11:25:16.7014662+03:00 0HLNT6HE3BELA:00000004 [INF] Executed DbCommand ("30"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T11:25:17.1865065+03:00 0HLNT6HE3BELA:00000004 [INF] Executed ViewResult - view "Index" executed in 475.8544ms. (f66409e9)
+2019-06-30T11:25:17.2933295+03:00 0HLNT6HE3BELA:00000004 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 764.9066ms (afa2e885)
+2019-06-30T11:25:17.9113935+03:00 0HLNT6HE3BELA:00000004 [INF] Request finished in 1300.143ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T11:25:34.8295156+03:00 0HLNT6HE3BEL9:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T11:25:34.8462243+03:00 0HLNT6HE3BEL9:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:34.8759101+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:34.8804473+03:00 0HLNT6HE3BEL9:00000004 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T11:25:34.8851330+03:00 0HLNT6HE3BEL9:00000004 [INF] Authorization was successful. (0d575a54)
+2019-06-30T11:25:34.8891880+03:00 0HLNT6HE3BEL9:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:34.9459250+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("35"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:34.9576182+03:00 0HLNT6HE3BEL9:00000004 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T11:25:34.9770362+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:34.9874670+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 19.8899ms. (50a9e262)
+2019-06-30T11:25:34.9976742+03:00 0HLNT6HE3BEL9:00000004 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T11:25:35.0211502+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:35.0448555+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:35.0607497+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:35.1060049+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("11"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T11:25:35.1368803+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed DbCommand ("15"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T11:25:35.4429225+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed ViewResult - view "Index" executed in 358.814ms. (f66409e9)
+2019-06-30T11:25:35.8092608+03:00 0HLNT6HE3BEL9:00000004 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 562.9112ms (afa2e885)
+2019-06-30T11:25:35.9891071+03:00 0HLNT6HE3BEL9:00000004 [INF] Request finished in 1050.2874ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T11:25:36.0753694+03:00 0HLNT6HE3BELB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=nkZqL3E-_9DpuI3ZWuM4HhS3zDdcYizdvq_K7Fj7jaQ   (ca22a1cb)
+2019-06-30T11:25:36.0919962+03:00 0HLNT6HE3BELA:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=DECbq4snBD3yhfsqxShj3K1wB2I9aiuTShYgSJ2-KmU   (ca22a1cb)
+2019-06-30T11:25:36.1249281+03:00 0HLNT6HE3BELB:00000001 [INF] The file "/js/categories.js" was not modified (f1f8d725)
+2019-06-30T11:25:36.1266855+03:00 0HLNT6HE3BELA:00000005 [INF] The file "/js/pagination.js" was not modified (f1f8d725)
+2019-06-30T11:25:36.2397063+03:00 0HLNT6HE3BELA:00000005 [INF] Request finished in 56.2757ms 304 application/javascript (791a596a)
+2019-06-30T11:25:36.4369947+03:00 0HLNT6HE3BELB:00000001 [INF] Request finished in 83.2449ms 304 application/javascript (791a596a)
+2019-06-30T11:25:36.6066169+03:00 0HLNT6HE3BEL9:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/favicons/favicon-32x32.png   (ca22a1cb)
+2019-06-30T11:25:36.7418410+03:00 0HLNT6HE3BEL9:00000005 [INF] Sending file. Request path: '"/images/favicons/favicon-32x32.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\favicons\favicon-32x32.png"' (27b0a520)
+2019-06-30T11:25:36.7786103+03:00 0HLNT6HE3BEL9:00000005 [INF] Request finished in 261.6354ms 200 image/png (791a596a)
+2019-06-30T11:25:52.6404771+03:00 0HLNT6HE3BELA:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T11:25:52.6539607+03:00 0HLNT6HE3BELA:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:52.6821139+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:52.6870996+03:00 0HLNT6HE3BELA:00000006 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T11:25:52.6985513+03:00 0HLNT6HE3BELA:00000006 [INF] Authorization was successful. (0d575a54)
+2019-06-30T11:25:52.7075181+03:00 0HLNT6HE3BELA:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T11:25:52.7316577+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T11:25:52.7355301+03:00 0HLNT6HE3BELA:00000006 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T11:25:52.7408550+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:52.7455965+03:00 0HLNT6HE3BELA:00000006 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 6.1555ms. (50a9e262)
+2019-06-30T11:25:52.7506504+03:00 0HLNT6HE3BELA:00000006 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T11:25:52.7572551+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:52.7623726+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:52.7711624+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T11:25:52.8003580+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("21"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T11:25:52.8321814+03:00 0HLNT6HE3BELA:00000006 [INF] Executed DbCommand ("14"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T11:25:52.9885055+03:00 0HLNT6HE3BELA:00000006 [INF] Executed ViewResult - view "Index" executed in 152.9734ms. (f66409e9)
+2019-06-30T11:25:53.0644791+03:00 0HLNT6HE3BELA:00000006 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 301.8906ms (afa2e885)
+2019-06-30T11:25:53.0777007+03:00 0HLNT6HE3BELB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=nkZqL3E-_9DpuI3ZWuM4HhS3zDdcYizdvq_K7Fj7jaQ   (ca22a1cb)
+2019-06-30T11:25:53.0818189+03:00 0HLNT6HE3BEL9:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=DECbq4snBD3yhfsqxShj3K1wB2I9aiuTShYgSJ2-KmU   (ca22a1cb)
+2019-06-30T11:25:53.6224743+03:00 0HLNT6HE3BEL9:00000006 [INF] The file "/js/pagination.js" was not modified (f1f8d725)
+2019-06-30T11:25:53.6957908+03:00 0HLNT6HE3BELA:00000006 [INF] Request finished in 857.3254ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T11:25:53.8528812+03:00 0HLNT6HE3BEL9:00000006 [INF] Request finished in 718.6265ms 304 application/javascript (791a596a)
+2019-06-30T11:25:53.8561302+03:00 0HLNT6HE3BELB:00000002 [INF] The file "/js/categories.js" was not modified (f1f8d725)
+2019-06-30T11:25:53.9325177+03:00 0HLNT6HE3BELB:00000002 [INF] Request finished in 833.0156ms 304 application/javascript (791a596a)
+2019-06-30T11:25:53.9821157+03:00 0HLNT6HE3BELA:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/favicons/favicon-32x32.png   (ca22a1cb)
+2019-06-30T11:25:54.0280110+03:00 0HLNT6HE3BELA:00000007 [INF] Sending file. Request path: '"/images/favicons/favicon-32x32.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\favicons\favicon-32x32.png"' (27b0a520)
+2019-06-30T11:25:54.0421977+03:00 0HLNT6HE3BELA:00000007 [INF] Request finished in 59.3575ms 200 image/png (791a596a)
+2019-06-30T12:02:46.1104291+03:00 0HLNT6HE3BELC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T12:02:46.1350927+03:00 0HLNT6HE3BELC:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:02:47.9925299+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("96"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:02:48.1505943+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("31"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AboutMe], [e].[AccessFailedCount], [e].[Address], [e].[City], [e].[ConcurrencyStamp], [e].[Country], [e].[DateCreated], [e].[Email], [e].[EmailConfirmed], [e].[FirstName], [e].[LastName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[Photo], [e].[SecurityQuestion], [e].[SecurityQuestionAnswer], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-06-30T12:02:48.3526221+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("29"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-06-30T12:02:48.3834258+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:02:48.4121141+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-06-30T12:02:48.4539860+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-06-30T12:02:48.5004219+03:00 0HLNT6HE3BELC:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:02:48.5277618+03:00 0HLNT6HE3BELC:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:02:48.5353569+03:00 0HLNT6HE3BELC:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:02:48.7026609+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("44"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:02:48.7091450+03:00 0HLNT6HE3BELC:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:02:48.7279248+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:02:48.7352165+03:00 0HLNT6HE3BELC:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 19.1641ms. (50a9e262)
+2019-06-30T12:02:48.7412176+03:00 0HLNT6HE3BELC:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:02:48.7498819+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:02:48.7573567+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:02:48.7638894+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:02:48.7752319+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:02:48.7849168+03:00 0HLNT6HE3BELC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:02:48.8567639+03:00 0HLNT6HE3BELC:00000001 [INF] Executed ViewResult - view "Index" executed in 117.6386ms. (f66409e9)
+2019-06-30T12:02:48.8620003+03:00 0HLNT6HE3BELC:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 351.3797ms (afa2e885)
+2019-06-30T12:02:48.8930336+03:00 0HLNT6HE3BELC:00000001 [INF] Request finished in 2777.5684ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:02:49.0169906+03:00 0HLNT6HE3BELC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=ufaCAoDyEPrHCpGsAZFdBbuwocW-PgGOO5mV0sYYL-w   (ca22a1cb)
+2019-06-30T12:02:49.0318019+03:00 0HLNT6HE3BELD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=nkZqL3E-_9DpuI3ZWuM4HhS3zDdcYizdvq_K7Fj7jaQ   (ca22a1cb)
+2019-06-30T12:02:49.0605846+03:00 0HLNT6HE3BELD:00000001 [INF] The file "/js/categories.js" was not modified (f1f8d725)
+2019-06-30T12:02:49.0899426+03:00 0HLNT6HE3BELD:00000001 [INF] Request finished in 57.0765ms 304 application/javascript (791a596a)
+2019-06-30T12:02:49.1138190+03:00 0HLNT6HE3BELC:00000002 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T12:02:49.1414401+03:00 0HLNT6HE3BELC:00000002 [INF] Request finished in 166.4135ms 200 application/javascript (791a596a)
+2019-06-30T12:02:49.3849815+03:00 0HLNT6HE3BELD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/favicons/favicon-32x32.png   (ca22a1cb)
+2019-06-30T12:02:49.4722866+03:00 0HLNT6HE3BELD:00000002 [INF] Sending file. Request path: '"/images/favicons/favicon-32x32.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\favicons\favicon-32x32.png"' (27b0a520)
+2019-06-30T12:02:49.4942088+03:00 0HLNT6HE3BELD:00000002 [INF] Request finished in 240.8819ms 200 image/png (791a596a)
+2019-06-30T12:03:06.2377672+03:00 0HLNT6HE3BELC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T12:03:06.2507557+03:00 0HLNT6HE3BELC:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:06.2657531+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:06.2698265+03:00 0HLNT6HE3BELC:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:03:06.2729309+03:00 0HLNT6HE3BELC:00000003 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:03:06.2774459+03:00 0HLNT6HE3BELC:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:06.2862895+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:06.2900971+03:00 0HLNT6HE3BELC:00000003 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:03:06.2970014+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:06.3006980+03:00 0HLNT6HE3BELC:00000003 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 7.6125ms. (50a9e262)
+2019-06-30T12:03:06.3037986+03:00 0HLNT6HE3BELC:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:03:06.3144551+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:06.3202147+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:06.3280884+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:06.3390951+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:03:06.3517778+03:00 0HLNT6HE3BELC:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:03:06.5641775+03:00 0HLNT6HE3BELC:00000003 [INF] Executed ViewResult - view "Index" executed in 213.6805ms. (f66409e9)
+2019-06-30T12:03:06.5805539+03:00 0HLNT6HE3BELD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=HdJ-Q60HTfEfc7VYeYOqT27L18lztez9aGLtlNL_79I   (ca22a1cb)
+2019-06-30T12:03:06.6044400+03:00 0HLNT6HE3BELC:00000003 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 295.3698ms (afa2e885)
+2019-06-30T12:03:06.7598983+03:00 0HLNT6HE3BELC:00000003 [INF] Request finished in 434.4621ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:03:06.8843539+03:00 0HLNT6HE3BELD:00000003 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T12:03:07.0187038+03:00 0HLNT6HE3BELD:00000003 [INF] Request finished in 448.607ms 200 application/javascript (791a596a)
+2019-06-30T12:03:07.1856246+03:00 0HLNT6HE3BELC:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/favicons/favicon-32x32.png   (ca22a1cb)
+2019-06-30T12:03:07.2643251+03:00 0HLNT6HE3BELC:00000004 [INF] Sending file. Request path: '"/images/favicons/favicon-32x32.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\favicons\favicon-32x32.png"' (27b0a520)
+2019-06-30T12:03:07.2823163+03:00 0HLNT6HE3BELC:00000004 [INF] Request finished in 96.7843ms 200 image/png (791a596a)
+2019-06-30T12:03:52.8764840+03:00 0HLNT6HE3BELD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T12:03:52.8958512+03:00 0HLNT6HE3BELD:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:52.9077118+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:52.9122677+03:00 0HLNT6HE3BELD:00000004 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:03:52.9157596+03:00 0HLNT6HE3BELD:00000004 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:03:52.9239934+03:00 0HLNT6HE3BELD:00000004 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:52.9320975+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:52.9377679+03:00 0HLNT6HE3BELD:00000004 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:03:52.9442088+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:52.9474814+03:00 0HLNT6HE3BELD:00000004 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 7.0404ms. (50a9e262)
+2019-06-30T12:03:52.9565289+03:00 0HLNT6HE3BELD:00000004 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:03:52.9614002+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:52.9717912+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:52.9802136+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:03:52.9892560+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:03:53.0019502+03:00 0HLNT6HE3BELD:00000004 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:03:53.2842240+03:00 0HLNT6HE3BELD:00000004 [INF] Executed ViewResult - view "Index" executed in 193.9574ms. (f66409e9)
+2019-06-30T12:03:53.4510590+03:00 0HLNT6HE3BELD:00000004 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 372.4802ms (afa2e885)
+2019-06-30T12:03:53.4793151+03:00 0HLNT6HE3BELC:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=Fll6oc8OARTsR4H1ezT3R700dgHp1OTO84u_vsex2zA   (ca22a1cb)
+2019-06-30T12:03:53.5739939+03:00 0HLNT6HE3BELD:00000004 [INF] Request finished in 688.5537ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:03:53.6794571+03:00 0HLNT6HE3BELC:00000005 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T12:03:53.7131822+03:00 0HLNT6HE3BELC:00000005 [INF] Request finished in 324.5415ms 200 application/javascript (791a596a)
+2019-06-30T12:03:53.7921182+03:00 0HLNT6HE3BELD:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/favicons/favicon-32x32.png   (ca22a1cb)
+2019-06-30T12:03:53.8589663+03:00 0HLNT6HE3BELD:00000005 [INF] Sending file. Request path: '"/images/favicons/favicon-32x32.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\favicons\favicon-32x32.png"' (27b0a520)
+2019-06-30T12:03:53.8772460+03:00 0HLNT6HE3BELD:00000005 [INF] Request finished in 113.8425ms 200 image/png (791a596a)
+2019-06-30T12:03:56.0226922+03:00 0HLNT6HE3BELC:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:03:56.0417199+03:00 0HLNT6HE3BELC:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:56.0494925+03:00 0HLNT6HE3BELC:00000006 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:56.1270419+03:00 0HLNT6HE3BELC:00000006 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:03:56.1306468+03:00 0HLNT6HE3BELC:00000006 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:03:56.1341036+03:00 0HLNT6HE3BELC:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:56.1407123+03:00 0HLNT6HE3BELC:00000006 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:56.2579788+03:00 0HLNT6HE3BELC:00000006 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:03:56.2649424+03:00 0HLNT6HE3BELC:00000006 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 4.3067ms. (50a9e262)
+2019-06-30T12:03:56.2817480+03:00 0HLNT6HE3BELC:00000006 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:03:56.5370330+03:00 0HLNT6HE3BELC:00000006 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T12:03:56.5409468+03:00 0HLNT6HE3BELC:00000006 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:03:56.5450773+03:00 0HLNT6HE3BELC:00000006 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:03:56.5559190+03:00 0HLNT6HE3BELC:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:03:56.6021368+03:00 0HLNT6HE3BELC:00000006 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 472.3536ms (afa2e885)
+2019-06-30T12:03:56.6122019+03:00 0HLNT6HE3BELC:00000006 [INF] Request finished in 588.0846ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:03:58.1972965+03:00 0HLNT6HE3BELD:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T12:03:58.2071977+03:00 0HLNT6HE3BELD:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:58.2151085+03:00 0HLNT6HE3BELD:00000006 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:58.2193688+03:00 0HLNT6HE3BELD:00000006 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:03:58.2223747+03:00 0HLNT6HE3BELD:00000006 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:03:58.2262445+03:00 0HLNT6HE3BELD:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:58.2372653+03:00 0HLNT6HE3BELD:00000006 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:58.2447598+03:00 0HLNT6HE3BELD:00000006 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:03:58.2550745+03:00 0HLNT6HE3BELD:00000006 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.2304ms. (50a9e262)
+2019-06-30T12:03:58.2682649+03:00 0HLNT6HE3BELD:00000006 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:03:58.2763199+03:00 0HLNT6HE3BELD:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:03:58.2855198+03:00 0HLNT6HE3BELD:00000006 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 57.7071ms (afa2e885)
+2019-06-30T12:03:58.2971788+03:00 0HLNT6HE3BELD:00000006 [INF] Request finished in 97.9197ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:03:59.2621132+03:00 0HLNT6HE3BELC:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:03:59.2750079+03:00 0HLNT6HE3BELC:00000007 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:59.2845184+03:00 0HLNT6HE3BELC:00000007 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:59.2884386+03:00 0HLNT6HE3BELC:00000007 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:03:59.2920098+03:00 0HLNT6HE3BELC:00000007 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:03:59.2959641+03:00 0HLNT6HE3BELC:00000007 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:03:59.3049634+03:00 0HLNT6HE3BELC:00000007 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:03:59.3097067+03:00 0HLNT6HE3BELC:00000007 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:03:59.3141970+03:00 0HLNT6HE3BELC:00000007 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.8934ms. (50a9e262)
+2019-06-30T12:03:59.3209788+03:00 0HLNT6HE3BELC:00000007 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:03:59.3274142+03:00 0HLNT6HE3BELC:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:03:59.3319151+03:00 0HLNT6HE3BELC:00000007 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 40.0926ms (afa2e885)
+2019-06-30T12:03:59.3498894+03:00 0HLNT6HE3BELC:00000007 [INF] Request finished in 82.3399ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:04:00.4601735+03:00 0HLNT6HE3BELD:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=1   (ca22a1cb)
+2019-06-30T12:04:00.4725596+03:00 0HLNT6HE3BELD:00000007 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:00.4835873+03:00 0HLNT6HE3BELD:00000007 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:00.4880135+03:00 0HLNT6HE3BELD:00000007 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:04:00.4919500+03:00 0HLNT6HE3BELD:00000007 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:04:00.5207001+03:00 0HLNT6HE3BELD:00000007 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:00.5389444+03:00 0HLNT6HE3BELD:00000007 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:00.5496162+03:00 0HLNT6HE3BELD:00000007 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:04:00.5587166+03:00 0HLNT6HE3BELD:00000007 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.5708ms. (50a9e262)
+2019-06-30T12:04:00.5999962+03:00 0HLNT6HE3BELD:00000007 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:04:00.6108792+03:00 0HLNT6HE3BELD:00000007 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:04:00.6163564+03:00 0HLNT6HE3BELD:00000007 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 123.3606ms (afa2e885)
+2019-06-30T12:04:00.6613399+03:00 0HLNT6HE3BELD:00000007 [INF] Request finished in 184.0754ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:04:40.2458401+03:00 0HLNT6HE3BELC:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:04:40.2569557+03:00 0HLNT6HE3BELC:00000008 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:40.2685666+03:00 0HLNT6HE3BELC:00000008 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:40.2741857+03:00 0HLNT6HE3BELC:00000008 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:04:40.2836573+03:00 0HLNT6HE3BELC:00000008 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:04:40.2890628+03:00 0HLNT6HE3BELC:00000008 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:40.2992200+03:00 0HLNT6HE3BELC:00000008 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:40.3032145+03:00 0HLNT6HE3BELC:00000008 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:04:40.3077470+03:00 0HLNT6HE3BELC:00000008 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.9002ms. (50a9e262)
+2019-06-30T12:04:40.3128751+03:00 0HLNT6HE3BELC:00000008 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:04:40.3176828+03:00 0HLNT6HE3BELC:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:04:40.3242125+03:00 0HLNT6HE3BELC:00000008 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 44.2705ms (afa2e885)
+2019-06-30T12:04:40.3497379+03:00 0HLNT6HE3BELC:00000008 [INF] Request finished in 124.3146ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:04:41.0631710+03:00 0HLNT6HE3BELD:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T12:04:41.0737797+03:00 0HLNT6HE3BELD:00000008 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:41.0818744+03:00 0HLNT6HE3BELD:00000008 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:41.0862047+03:00 0HLNT6HE3BELD:00000008 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:04:41.0904133+03:00 0HLNT6HE3BELD:00000008 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:04:41.0949841+03:00 0HLNT6HE3BELD:00000008 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:41.1039971+03:00 0HLNT6HE3BELD:00000008 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:41.1085133+03:00 0HLNT6HE3BELD:00000008 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:04:41.1120325+03:00 0HLNT6HE3BELD:00000008 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.2594ms. (50a9e262)
+2019-06-30T12:04:41.1153145+03:00 0HLNT6HE3BELD:00000008 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:04:41.1219525+03:00 0HLNT6HE3BELD:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:04:41.1293740+03:00 0HLNT6HE3BELD:00000008 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 36.1361ms (afa2e885)
+2019-06-30T12:04:41.1566594+03:00 0HLNT6HE3BELD:00000008 [INF] Request finished in 83.1378ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:04:42.8195934+03:00 0HLNT6HE3BELC:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:04:42.8319821+03:00 0HLNT6HE3BELC:00000009 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:42.8431203+03:00 0HLNT6HE3BELC:00000009 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:42.8474100+03:00 0HLNT6HE3BELC:00000009 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:04:42.8526921+03:00 0HLNT6HE3BELC:00000009 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:04:42.8569725+03:00 0HLNT6HE3BELC:00000009 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:04:42.8655058+03:00 0HLNT6HE3BELC:00000009 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:04:42.8688270+03:00 0HLNT6HE3BELC:00000009 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:04:42.8745541+03:00 0HLNT6HE3BELC:00000009 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.4147ms. (50a9e262)
+2019-06-30T12:04:42.8791933+03:00 0HLNT6HE3BELC:00000009 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:04:42.8869066+03:00 0HLNT6HE3BELC:00000009 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:04:42.8953422+03:00 0HLNT6HE3BELC:00000009 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 39.3814ms (afa2e885)
+2019-06-30T12:04:42.9494889+03:00 0HLNT6HE3BELC:00000009 [INF] Request finished in 157.9014ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:06:27.5618274+03:00 0HLNT78TLGGA1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-30T12:06:27.5621043+03:00 0HLNT78TLGGA0:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-30T12:06:28.5222301+03:00 0HLNT78TLGGA0:00000001 [INF] Request finished in 831.7752ms 200  (791a596a)
+2019-06-30T12:06:35.5322760+03:00 0HLNT78TLGGA1:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:06:51.2799206+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("701"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:06:53.6022021+03:00 0HLNT78TLGGA1:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:06:54.4284730+03:00 0HLNT78TLGGA1:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:06:59.1338259+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("1,937"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:06:59.2352958+03:00 0HLNT78TLGGA1:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:06:59.4216718+03:00 0HLNT78TLGGA1:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 131.2501ms. (50a9e262)
+2019-06-30T12:07:00.1918351+03:00 0HLNT78TLGGA1:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:07:02.5533014+03:00 0HLNT78TLGGA1:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:07:02.5807915+03:00 0HLNT78TLGGA1:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:07:02.5903335+03:00 0HLNT78TLGGA1:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:07:02.5941679+03:00 0HLNT78TLGGA1:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:07:05.5561779+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("512"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-30T12:07:06.2897370+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("364"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-30T12:07:10.0104221+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("83"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-30T12:07:10.3952753+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("70"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-30T12:07:11.0042597+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("138"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-30T12:07:11.2321270+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("102"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-30T12:07:13.6777905+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("1,626"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:07:14.5552537+03:00 0HLNT78TLGGA1:00000001 [INF] Executed DbCommand ("113"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:07:16.3025228+03:00 0HLNT78TLGGA1:00000001 [INF] Executed ViewResult - view "Index" executed in 16559.7603ms. (f66409e9)
+2019-06-30T12:07:16.5012649+03:00 0HLNT78TLGGA1:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 22728.7052ms (afa2e885)
+2019-06-30T12:07:17.9040074+03:00 0HLNT78TLGGA1:00000001 [INF] Request finished in 50202.1917ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:08:03.0184520+03:00 0HLNT78TLGGA1:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T12:08:03.0996054+03:00 0HLNT78TLGGA1:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:08:03.1529495+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("44"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:08:03.1741032+03:00 0HLNT78TLGGA1:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:08:03.2455047+03:00 0HLNT78TLGGA1:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:08:03.2498751+03:00 0HLNT78TLGGA1:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:08:03.2767052+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:08:03.2816392+03:00 0HLNT78TLGGA1:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:08:03.2974221+03:00 0HLNT78TLGGA1:00000002 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:08:03.3004117+03:00 0HLNT78TLGGA1:00000002 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:08:03.3306838+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:03.3379520+03:00 0HLNT78TLGGA1:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 53.0705ms. (50a9e262)
+2019-06-30T12:08:03.3705712+03:00 0HLNT78TLGGA1:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:08:03.4822351+03:00 0HLNT78TLGGA1:00000002 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T12:08:03.4855585+03:00 0HLNT78TLGGA1:00000002 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:08:03.4880822+03:00 0HLNT78TLGGA1:00000002 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:08:03.4974416+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:03.5468906+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:03.5512585+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:03.6083466+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:08:03.8031211+03:00 0HLNT78TLGGA1:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:08:04.4138916+03:00 0HLNT78TLGGA2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T12:08:04.4381950+03:00 0HLNT78TLGGA1:00000002 [INF] Executed ViewResult - view "Index" executed in 1083.6617ms. (f66409e9)
+2019-06-30T12:08:04.4416036+03:00 0HLNT78TLGGA2:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:08:04.4465393+03:00 0HLNT78TLGGA1:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1267.6215ms (afa2e885)
+2019-06-30T12:08:04.4607814+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:08:04.4957635+03:00 0HLNT78TLGGA2:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:08:04.5077652+03:00 0HLNT78TLGGA1:00000002 [INF] Request finished in 1488.4821ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:08:04.5119573+03:00 0HLNT78TLGGA2:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:08:04.5195728+03:00 0HLNT78TLGGA2:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:08:04.5413555+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:08:04.5476548+03:00 0HLNT78TLGGA2:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:08:04.5565829+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:04.5677747+03:00 0HLNT78TLGGA2:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 9.2958ms. (50a9e262)
+2019-06-30T12:08:04.5815202+03:00 0HLNT78TLGGA2:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:08:04.5939282+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:04.6058876+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:04.6123380+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T12:08:04.6433021+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:08:04.6608838+03:00 0HLNT78TLGGA2:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:08:05.0479616+03:00 0HLNT78TLGGA2:00000001 [INF] Executed ViewResult - view "Index" executed in 338.3937ms. (f66409e9)
+2019-06-30T12:08:05.3017093+03:00 0HLNT78TLGGA2:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 552.5206ms (afa2e885)
+2019-06-30T12:08:05.5037968+03:00 0HLNT78TLGGA1:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=Fll6oc8OARTsR4H1ezT3R700dgHp1OTO84u_vsex2zA   (ca22a1cb)
+2019-06-30T12:08:05.5157768+03:00 0HLNT78TLGGA3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=nkZqL3E-_9DpuI3ZWuM4HhS3zDdcYizdvq_K7Fj7jaQ   (ca22a1cb)
+2019-06-30T12:08:05.7011940+03:00 0HLNT78TLGGA1:00000003 [INF] The file "/js/pagination.js" was not modified (f1f8d725)
+2019-06-30T12:08:05.7193731+03:00 0HLNT78TLGGA3:00000001 [INF] The file "/js/categories.js" was not modified (f1f8d725)
+2019-06-30T12:08:05.8400299+03:00 0HLNT78TLGGA1:00000003 [INF] Request finished in 454.7557ms 304 application/javascript (791a596a)
+2019-06-30T12:08:05.9391337+03:00 0HLNT78TLGGA3:00000001 [INF] Request finished in 458.5125ms 304 application/javascript (791a596a)
+2019-06-30T12:08:05.9744233+03:00 0HLNT78TLGGA2:00000001 [INF] Request finished in 1380.1943ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T12:10:00.4285212+03:00 0HLNT78TLGGA4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:10:00.4453404+03:00 0HLNT78TLGGA4:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:10:00.5002342+03:00 0HLNT78TLGGA4:00000001 [INF] Executed DbCommand ("47"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:10:00.5554111+03:00 0HLNT78TLGGA4:00000001 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:10:00.5597533+03:00 0HLNT78TLGGA4:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:10:00.5637641+03:00 0HLNT78TLGGA4:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:10:00.5853658+03:00 0HLNT78TLGGA4:00000001 [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:10:00.6889325+03:00 0HLNT78TLGGA4:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:10:00.6943908+03:00 0HLNT78TLGGA4:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 2.9414ms. (50a9e262)
+2019-06-30T12:10:00.7133609+03:00 0HLNT78TLGGA4:00000001 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:10:01.0595507+03:00 0HLNT78TLGGA4:00000001 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T12:10:01.0797812+03:00 0HLNT78TLGGA4:00000001 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:10:01.1064683+03:00 0HLNT78TLGGA4:00000001 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T12:10:01.1281405+03:00 0HLNT78TLGGA4:00000001 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:10:01.1936988+03:00 0HLNT78TLGGA4:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 631.0525ms (afa2e885)
+2019-06-30T12:10:01.2205234+03:00 0HLNT78TLGGA4:00000001 [INF] Request finished in 798.2818ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:27:32.6592053+03:00 0HLNT78TLGGA5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T12:27:32.6876623+03:00 0HLNT78TLGGA5:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:33.6564746+03:00 0HLNT78TLGGA6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T12:27:33.6687182+03:00 0HLNT78TLGGA6:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:34.0936197+03:00 0HLNT78TLGGA7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=1   (ca22a1cb)
+2019-06-30T12:27:34.1201605+03:00 0HLNT78TLGGA7:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:34.4020050+03:00 0HLNT78TLGGA7:00000001 [INF] Executed DbCommand ("100"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.4067871+03:00 0HLNT78TLGGA5:00000001 [INF] Executed DbCommand ("134"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.4325975+03:00 0HLNT78TLGGA6:00000001 [INF] Executed DbCommand ("105"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.4399546+03:00 0HLNT78TLGGA7:00000001 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:27:34.4671713+03:00 0HLNT78TLGGA5:00000001 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:27:34.4709349+03:00 0HLNT78TLGGA6:00000001 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T12:27:34.4722332+03:00 0HLNT78TLGGA7:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:27:34.4777424+03:00 0HLNT78TLGGA5:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:27:34.4811514+03:00 0HLNT78TLGGA6:00000001 [INF] Authorization was successful. (0d575a54)
+2019-06-30T12:27:34.4840592+03:00 0HLNT78TLGGA7:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:34.4865923+03:00 0HLNT78TLGGA5:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:34.4878979+03:00 0HLNT78TLGGA6:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:34.5810906+03:00 0HLNT78TLGGA5:00000001 [INF] Executed DbCommand ("31"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.6045975+03:00 0HLNT78TLGGA5:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:27:34.6063194+03:00 0HLNT78TLGGA7:00000001 [INF] Executed DbCommand ("57"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.6082083+03:00 0HLNT78TLGGA6:00000001 [INF] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:34.6126571+03:00 0HLNT78TLGGA7:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:27:34.6378386+03:00 0HLNT78TLGGA6:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T12:27:34.6433337+03:00 0HLNT78TLGGA7:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 26.0872ms. (50a9e262)
+2019-06-30T12:27:34.6467356+03:00 0HLNT78TLGGA5:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 32.4847ms. (50a9e262)
+2019-06-30T12:27:34.6513354+03:00 0HLNT78TLGGA6:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.9113ms. (50a9e262)
+2019-06-30T12:27:34.6593201+03:00 0HLNT78TLGGA6:00000001 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:27:34.6631046+03:00 0HLNT78TLGGA5:00000001 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:27:34.6655921+03:00 0HLNT78TLGGA7:00000001 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T12:27:34.7055623+03:00 0HLNT78TLGGA5:00000001 [INF] Executed DbCommand ("21"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:27:34.7123531+03:00 0HLNT78TLGGA7:00000001 [INF] Executed DbCommand ("30"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:27:34.7234051+03:00 0HLNT78TLGGA5:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 240.5171ms (afa2e885)
+2019-06-30T12:27:34.7280464+03:00 0HLNT78TLGGA7:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 273.3568ms (afa2e885)
+2019-06-30T12:27:34.9144415+03:00 0HLNT78TLGGA5:00000001 [INF] Request finished in 2119.7378ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:27:34.9284341+03:00 0HLNT78TLGGA7:00000001 [INF] Request finished in 712.8298ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:27:34.9567802+03:00 0HLNT78TLGGA6:00000001 [INF] Executed DbCommand ("32"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T12:27:35.0105753+03:00 0HLNT78TLGGA6:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 486.5753ms (afa2e885)
+2019-06-30T12:27:35.0608875+03:00 0HLNT78TLGGA6:00000001 [INF] Request finished in 1374.9638ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T12:27:53.3886884+03:00 0HLNT78TLGGA5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-30T12:27:53.4136659+03:00 0HLNT78TLGGA5:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:53.4262027+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:53.4334850+03:00 0HLNT78TLGGA5:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-30T12:27:53.4509703+03:00 0HLNT78TLGGA5:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T12:27:53.4643719+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T12:27:53.4693157+03:00 0HLNT78TLGGA5:00000002 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T12:27:53.4776110+03:00 0HLNT78TLGGA5:00000002 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 4.2193ms. (50a9e262)
+2019-06-30T12:27:53.4941767+03:00 0HLNT78TLGGA5:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T12:27:53.5069162+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-30T12:27:53.5230976+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-30T12:27:53.5401254+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-30T12:27:53.5502584+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-30T12:27:53.5634321+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-30T12:27:53.5782123+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-30T12:27:53.6059734+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("13"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T12:27:53.6229940+03:00 0HLNT78TLGGA5:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T12:27:53.7618107+03:00 0HLNT78TLGGA5:00000002 [INF] Executed ViewResult - view "Index" executed in 268.5201ms. (f66409e9)
+2019-06-30T12:27:53.7663765+03:00 0HLNT78TLGGA5:00000002 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 328.2949ms (afa2e885)
+2019-06-30T12:27:53.8740119+03:00 0HLNT78TLGGA5:00000002 [INF] Request finished in 433.9326ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T19:29:50.3503194+03:00 0HLNTF0M3843R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-06-30T19:29:50.3503202+03:00 0HLNTF0M3843Q:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-06-30T19:29:51.7413742+03:00 0HLNTF0M3843Q:00000001 [INF] Request finished in 918.943ms 200  (791a596a)
+2019-06-30T19:29:53.5948532+03:00 0HLNTF0M3843R:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:04.2558744+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("400"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:05.1766781+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("405"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AboutMe], [e].[AccessFailedCount], [e].[Address], [e].[City], [e].[ConcurrencyStamp], [e].[Country], [e].[DateCreated], [e].[Email], [e].[EmailConfirmed], [e].[FirstName], [e].[LastName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[Photo], [e].[SecurityQuestion], [e].[SecurityQuestionAnswer], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-06-30T19:30:05.6540891+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("17"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-06-30T19:30:05.8033638+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T19:30:05.9134935+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("54"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-06-30T19:30:06.0443750+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("23"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-06-30T19:30:06.6030571+03:00 0HLNTF0M3843R:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-06-30T19:30:07.3919494+03:00 0HLNTF0M3843R:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:10.8006537+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("2,202"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:10.8587525+03:00 0HLNTF0M3843R:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T19:30:10.9458439+03:00 0HLNTF0M3843R:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 29.2988ms. (50a9e262)
+2019-06-30T19:30:11.0303095+03:00 0HLNTF0M3843R:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T19:30:11.2572168+03:00 0HLNTF0M3843R:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:11.2832008+03:00 0HLNTF0M3843R:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:11.2982728+03:00 0HLNTF0M3843R:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:11.3041613+03:00 0HLNTF0M3843R:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:11.6537243+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("161"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-06-30T19:30:11.8177165+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("139"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-06-30T19:30:13.0067160+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-06-30T19:30:13.0956481+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-06-30T19:30:13.2401318+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-06-30T19:30:13.3610830+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("68"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-06-30T19:30:13.7786461+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("273"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T19:30:13.8237226+03:00 0HLNTF0M3843R:00000001 [INF] Executed DbCommand ("22"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T19:30:15.5078344+03:00 0HLNTF0M3843Q:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg   (ca22a1cb)
+2019-06-30T19:30:15.7635195+03:00 0HLNTF0M3843R:00000001 [INF] Executed ViewResult - view "Index" executed in 3911.0705ms. (f66409e9)
+2019-06-30T19:30:16.0265523+03:00 0HLNTF0M3843R:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 9219.1304ms (afa2e885)
+2019-06-30T19:30:16.0624836+03:00 0HLNTF0M3843Q:00000002 [INF] The file "/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg" was not modified (f1f8d725)
+2019-06-30T19:30:16.5249246+03:00 0HLNTF0M3843Q:00000002 [INF] Request finished in 1696.5148ms 304 image/jpeg (791a596a)
+2019-06-30T19:30:16.6126742+03:00 0HLNTF0M3843R:00000001 [INF] Request finished in 26213.5858ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T19:30:25.1656113+03:00 0HLNTF0M3843Q:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T19:30:25.2715823+03:00 0HLNTF0M3843Q:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:25.5757474+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("282"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:25.5998128+03:00 0HLNTF0M3843Q:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T19:30:25.6515005+03:00 0HLNTF0M3843Q:00000003 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:25.6571897+03:00 0HLNTF0M3843Q:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:26.4632655+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("757"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:26.4977002+03:00 0HLNTF0M3843Q:00000003 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T19:30:26.5618982+03:00 0HLNTF0M3843Q:00000003 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:26.5815685+03:00 0HLNTF0M3843Q:00000003 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:26.9430305+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("323"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:26.9568467+03:00 0HLNTF0M3843Q:00000003 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 449.7786ms. (50a9e262)
+2019-06-30T19:30:26.9986858+03:00 0HLNTF0M3843Q:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T19:30:27.0613862+03:00 0HLNTF0M3843Q:00000003 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T19:30:27.0783843+03:00 0HLNTF0M3843Q:00000003 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:27.0953281+03:00 0HLNTF0M3843Q:00000003 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:27.1284934+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("14"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:27.1597971+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:27.1693416+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:27.4746042+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("174"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T19:30:28.0799527+03:00 0HLNTF0M3843Q:00000003 [INF] Executed DbCommand ("96"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T19:30:29.1383225+03:00 0HLNTF0M3843R:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-06-30T19:30:29.4015089+03:00 0HLNTF0M3843Q:00000003 [INF] Executed ViewResult - view "Index" executed in 2292.3396ms. (f66409e9)
+2019-06-30T19:30:29.4296902+03:00 0HLNTF0M3843Q:00000003 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 3802.0451ms (afa2e885)
+2019-06-30T19:30:29.4368783+03:00 0HLNTF0M3843R:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:29.4599145+03:00 0HLNTF0M3843Q:00000003 [INF] Request finished in 4321.4102ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T19:30:29.7841272+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("338"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:29.8105954+03:00 0HLNTF0M3843R:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-06-30T19:30:29.8224738+03:00 0HLNTF0M3843R:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:29.9043283+03:00 0HLNTF0M3843R:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:30.8724003+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("334"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:31.0934077+03:00 0HLNTF0M3843R:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-06-30T19:30:31.1863025+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("42"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:31.2363229+03:00 0HLNTF0M3843R:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 93.2059ms. (50a9e262)
+2019-06-30T19:30:31.2719965+03:00 0HLNTF0M3843R:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-30T19:30:31.2858304+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:31.3054968+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:31.3203205+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-06-30T19:30:31.4301916+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("54"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-30T19:30:31.5203886+03:00 0HLNTF0M3843R:00000002 [INF] Executed DbCommand ("43"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-30T19:30:31.9482703+03:00 0HLNTF0M3843Q:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/categories.css?v=gB7iJSuhQYYjAlJfh2Y5U0K1ZIJtPj1XJyzMjAWxqMk   (ca22a1cb)
+2019-06-30T19:30:32.0555994+03:00 0HLNTF0M3843R:00000002 [INF] Executed ViewResult - view "Index" executed in 804.6366ms. (f66409e9)
+2019-06-30T19:30:32.0798175+03:00 0HLNTF0M3843R:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 2245.169ms (afa2e885)
+2019-06-30T19:30:32.0890735+03:00 0HLNTF0M3843Q:00000004 [INF] The file "/css/categories.css" was not modified (f1f8d725)
+2019-06-30T19:30:32.1778119+03:00 0HLNTF0M3843R:00000002 [INF] Request finished in 3196.8732ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-30T19:30:32.2647355+03:00 0HLNTF0M3843Q:00000004 [INF] Request finished in 271.8549ms 304 text/css (791a596a)
+2019-06-30T19:30:32.2965606+03:00 0HLNTF0M3843T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=ufXA9YHaGbYqjXWm33KnfzHH5UivytL2WlvODuR8Wmw   (ca22a1cb)
+2019-06-30T19:30:32.3953332+03:00 0HLNTF0M3843U:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/pagination.js?v=Fll6oc8OARTsR4H1ezT3R700dgHp1OTO84u_vsex2zA   (ca22a1cb)
+2019-06-30T19:30:32.7013985+03:00 0HLNTF0M3843S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/pagination.css?v=JT8Dh2fv6HzyAIR8lv8zmJ3_E3DN2jpcmWPbOIvL0Wo   (ca22a1cb)
+2019-06-30T19:30:32.8630149+03:00 0HLNTF0M3843T:00000001 [INF] Sending file. Request path: '"/js/categories.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\categories.js"' (27b0a520)
+2019-06-30T19:30:32.9398108+03:00 0HLNTF0M3843U:00000001 [INF] Sending file. Request path: '"/js/pagination.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\pagination.js"' (27b0a520)
+2019-06-30T19:30:33.0832926+03:00 0HLNTF0M3843T:00000001 [INF] Request finished in 986.714ms 200 application/javascript (791a596a)
+2019-06-30T19:30:33.0895399+03:00 0HLNTF0M3843U:00000001 [INF] Request finished in 840.4025ms 200 application/javascript (791a596a)
+2019-06-30T19:30:33.0993622+03:00 0HLNTF0M3843S:00000001 [INF] The file "/css/pagination.css" was not modified (f1f8d725)
+2019-06-30T19:30:33.1338920+03:00 0HLNTF0M3843S:00000001 [INF] Request finished in 1126.5115ms 304 text/css (791a596a)
+2019-06-30T19:30:42.5029503+03:00 0HLNTF0M3843R:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T19:30:42.5341133+03:00 0HLNTF0M3843R:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:42.5930732+03:00 0HLNTF0M3843R:00000003 [INF] Executed DbCommand ("45"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:42.6680578+03:00 0HLNTF0M3843R:00000003 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:42.6795377+03:00 0HLNTF0M3843R:00000003 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:42.7138349+03:00 0HLNTF0M3843R:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:42.8056375+03:00 0HLNTF0M3843R:00000003 [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:42.9287076+03:00 0HLNTF0M3843R:00000003 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:42.9931250+03:00 0HLNTF0M3843R:00000003 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 2.3756ms. (50a9e262)
+2019-06-30T19:30:43.0041936+03:00 0HLNTF0M3843Q:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T19:30:43.0074550+03:00 0HLNTF0M3843R:00000003 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:43.0536874+03:00 0HLNTF0M3843Q:00000005 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:43.1108489+03:00 0HLNTF0M3843Q:00000005 [INF] Executed DbCommand ("45"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:43.1390922+03:00 0HLNTF0M3843Q:00000005 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:43.1737265+03:00 0HLNTF0M3843Q:00000005 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:43.1886351+03:00 0HLNTF0M3843Q:00000005 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:43.2063883+03:00 0HLNTF0M3843Q:00000005 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:43.2184157+03:00 0HLNTF0M3843Q:00000005 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:43.2227724+03:00 0HLNTF0M3843Q:00000005 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.2726ms. (50a9e262)
+2019-06-30T19:30:43.2327636+03:00 0HLNTF0M3843Q:00000005 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:43.3155947+03:00 0HLNTF0M3843R:00000003 [WRN] Query: '"(from Category c in DbSet<Category> select new Category{ { 
+    Id = [c].Id, , 
+    Name = [c].Nam..."' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-06-30T19:30:43.3329383+03:00 0HLNTF0M3843R:00000003 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:43.3376653+03:00 0HLNTF0M3843R:00000003 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-30T19:30:43.3818275+03:00 0HLNTF0M3843Q:00000005 [INF] Executed DbCommand ("13"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:43.3876904+03:00 0HLNTF0M3843R:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:43.4481142+03:00 0HLNTF0M3843Q:00000005 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 264.1177ms (afa2e885)
+2019-06-30T19:30:43.4519490+03:00 0HLNTF0M3843R:00000003 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 753.4045ms (afa2e885)
+2019-06-30T19:30:43.5191231+03:00 0HLNTF0M3843Q:00000005 [INF] Request finished in 474.7237ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T19:30:43.5340654+03:00 0HLNTF0M3843R:00000003 [INF] Request finished in 979.0122ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T19:30:46.2694177+03:00 0HLNTF0M3843T:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T19:30:46.3727608+03:00 0HLNTF0M3843T:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:46.3868101+03:00 0HLNTF0M3843T:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:46.4200236+03:00 0HLNTF0M3843T:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:46.4297081+03:00 0HLNTF0M3843T:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:46.4372277+03:00 0HLNTF0M3843T:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:46.4503576+03:00 0HLNTF0M3843T:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:46.4591580+03:00 0HLNTF0M3843T:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:46.4671559+03:00 0HLNTF0M3843T:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.4625ms. (50a9e262)
+2019-06-30T19:30:46.4741162+03:00 0HLNTF0M3843T:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:46.4820718+03:00 0HLNTF0M3843T:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:46.4897254+03:00 0HLNTF0M3843T:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 62.764ms (afa2e885)
+2019-06-30T19:30:46.5451934+03:00 0HLNTF0M3843T:00000002 [INF] Request finished in 348.0752ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T19:30:47.9028793+03:00 0HLNTF0M3843U:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=1   (ca22a1cb)
+2019-06-30T19:30:47.9270492+03:00 0HLNTF0M3843U:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:47.9388491+03:00 0HLNTF0M3843U:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:47.9455716+03:00 0HLNTF0M3843U:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:47.9535081+03:00 0HLNTF0M3843U:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:47.9589519+03:00 0HLNTF0M3843U:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:48.2813943+03:00 0HLNTF0M3843U:00000002 [INF] Executed DbCommand ("275"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:48.3912625+03:00 0HLNTF0M3843U:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:48.4860363+03:00 0HLNTF0M3843U:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 1.2492ms. (50a9e262)
+2019-06-30T19:30:48.5515234+03:00 0HLNTF0M3843U:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:48.6778255+03:00 0HLNTF0M3843U:00000002 [INF] Executed DbCommand ("60"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:48.7211659+03:00 0HLNTF0M3843U:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 732.5243ms (afa2e885)
+2019-06-30T19:30:48.7994278+03:00 0HLNTF0M3843U:00000002 [INF] Request finished in 847.2057ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T19:30:49.7373989+03:00 0HLNTF0M3843S:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=2   (ca22a1cb)
+2019-06-30T19:30:49.7509221+03:00 0HLNTF0M3843S:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:49.7805431+03:00 0HLNTF0M3843S:00000002 [INF] Executed DbCommand ("24"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:49.7849314+03:00 0HLNTF0M3843S:00000002 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:49.7887693+03:00 0HLNTF0M3843S:00000002 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:49.8075311+03:00 0HLNTF0M3843S:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:49.8385988+03:00 0HLNTF0M3843S:00000002 [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:49.8444011+03:00 0HLNTF0M3843S:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["2"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:49.8484643+03:00 0HLNTF0M3843S:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.4104ms. (50a9e262)
+2019-06-30T19:30:49.8517347+03:00 0HLNTF0M3843S:00000002 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:49.8633930+03:00 0HLNTF0M3843S:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:49.8694456+03:00 0HLNTF0M3843S:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 78.8664ms (afa2e885)
+2019-06-30T19:30:49.9096714+03:00 0HLNTF0M3843S:00000002 [INF] Request finished in 147.748ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-30T19:30:51.1940679+03:00 0HLNTF0M3843Q:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Category/GetCategories?page=3   (ca22a1cb)
+2019-06-30T19:30:51.2115058+03:00 0HLNTF0M3843Q:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:51.2240865+03:00 0HLNTF0M3843Q:00000006 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:51.2293332+03:00 0HLNTF0M3843Q:00000006 [INF] Route matched with "{action = \"GetCategories\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" (a44c0341)
+2019-06-30T19:30:51.2340731+03:00 0HLNTF0M3843Q:00000006 [INF] Authorization was successful. (0d575a54)
+2019-06-30T19:30:51.2388892+03:00 0HLNTF0M3843Q:00000006 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-06-30T19:30:51.2531272+03:00 0HLNTF0M3843Q:00000006 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-06-30T19:30:51.2623692+03:00 0HLNTF0M3843Q:00000006 [INF] Executing action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" with arguments (["3"]) - Validation state: Valid (4e3479ed)
+2019-06-30T19:30:51.2728353+03:00 0HLNTF0M3843Q:00000006 [INF] Executed action method "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 0.3865ms. (50a9e262)
+2019-06-30T19:30:51.2830596+03:00 0HLNTF0M3843Q:00000006 [INF] Executing JsonResult, writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ComputerStore.Models.Category, ComputerStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (2f513669)
+2019-06-30T19:30:51.2927608+03:00 0HLNTF0M3843Q:00000006 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-30T19:30:51.2988791+03:00 0HLNTF0M3843Q:00000006 [INF] Executed action "ComputerStore.Controllers.CategoryController.GetCategories (ComputerStore)" in 63.8294ms (afa2e885)
+2019-06-30T19:30:51.3175420+03:00 0HLNTF0M3843Q:00000006 [INF] Request finished in 121.4623ms 200 application/json; charset=utf-8 (791a596a)

@@ -1,0 +1,548 @@
+2019-07-09T16:26:57.0087081+03:00 0HLO4E4EGC2SQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-07-09T16:26:57.0087047+03:00 0HLO4E4EGC2SR:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-07-09T16:26:57.8541563+03:00 0HLO4E4EGC2SR:00000001 [INF] Request finished in 717.8769ms 200  (791a596a)
+2019-07-09T16:27:03.8509051+03:00 0HLO4E4EGC2SQ:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:27:16.3823666+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("405"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:27:18.9178456+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("440"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AboutMe], [e].[AccessFailedCount], [e].[Address], [e].[City], [e].[ConcurrencyStamp], [e].[Country], [e].[DateCreated], [e].[Email], [e].[EmailConfirmed], [e].[FirstName], [e].[LastName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[Photo], [e].[SecurityQuestion], [e].[SecurityQuestionAnswer], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-07-09T16:27:20.4173665+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("39"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-07-09T16:27:21.1374975+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("266"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T16:27:21.2533055+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("48"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-07-09T16:27:21.3895850+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-07-09T16:27:23.7180206+03:00 0HLO4E4EGC2SQ:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-07-09T16:27:24.2667827+03:00 0HLO4E4EGC2SQ:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:27:26.5666303+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("1,624"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:27:26.6396070+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T16:27:26.7245068+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 60.5525ms. (50a9e262)
+2019-07-09T16:27:27.1157490+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T16:27:27.7006254+03:00 0HLO4E4EGC2SQ:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:27:27.7143939+03:00 0HLO4E4EGC2SQ:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:27:27.7316342+03:00 0HLO4E4EGC2SQ:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:27:27.7402260+03:00 0HLO4E4EGC2SQ:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:27:28.2898449+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("66"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-07-09T16:27:28.4292433+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("59"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-07-09T16:27:31.3177236+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("37"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-07-09T16:27:31.3886672+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-07-09T16:27:31.6252855+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-07-09T16:27:31.6704174+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-07-09T16:27:31.9300692+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("89"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T16:27:32.1107993+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed DbCommand ("51"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T16:27:33.3775172+03:00 0HLO4E4EGC2SS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/productpreview.css?v=H5d1rXs5MXKvoSjd6fzxQEE3nAtIA5-28tU1yMt6HZs   (ca22a1cb)
+2019-07-09T16:27:33.3933064+03:00 0HLO4E4EGC2ST:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/mainpagenavbar.css?v=D7f2BLDzVvUg7s_8D7wXjnpvZiTcGPZKviAQoaKMp3c   (ca22a1cb)
+2019-07-09T16:27:33.5095978+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed ViewResult - view "Index" executed in 6607.808ms. (f66409e9)
+2019-07-09T16:27:33.6531263+03:00 0HLO4E4EGC2SU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/efbc1e50-38ee-4c4c-80e9-73544a0ce015.jpg   (ca22a1cb)
+2019-07-09T16:27:33.6627114+03:00 0HLO4E4EGC2SR:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/homepage.css?v=--KA5R-qAoqV1FK_cJHSNU4ZHySwt4RFzNKtyKsmdec   (ca22a1cb)
+2019-07-09T16:27:33.6740240+03:00 0HLO4E4EGC2SQ:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 9913.0743ms (afa2e885)
+2019-07-09T16:27:33.7131566+03:00 0HLO4E4EGC2ST:00000001 [INF] The file "/css/mainpagenavbar.css" was not modified (f1f8d725)
+2019-07-09T16:27:33.7579839+03:00 0HLO4E4EGC2SS:00000001 [INF] The file "/css/productpreview.css" was not modified (f1f8d725)
+2019-07-09T16:27:33.7885934+03:00 0HLO4E4EGC2SU:00000001 [INF] The file "/images/products/efbc1e50-38ee-4c4c-80e9-73544a0ce015.jpg" was not modified (f1f8d725)
+2019-07-09T16:27:33.9549494+03:00 0HLO4E4EGC2SR:00000002 [INF] The file "/css/homepage.css" was not modified (f1f8d725)
+2019-07-09T16:27:34.1248929+03:00 0HLO4E4EGC2SU:00000001 [INF] Request finished in 492.4411ms 304 image/jpeg (791a596a)
+2019-07-09T16:27:34.1875340+03:00 0HLO4E4EGC2SQ:00000001 [INF] Request finished in 37206.5668ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T16:27:34.2020547+03:00 0HLO4E4EGC2SV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg   (ca22a1cb)
+2019-07-09T16:27:34.2300449+03:00 0HLO4E4EGC2ST:00000001 [INF] Request finished in 865.5748ms 304 text/css (791a596a)
+2019-07-09T16:27:34.2405405+03:00 0HLO4E4EGC2T0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/faefd58e-f647-4b76-84c1-ee43924a3289.jpg   (ca22a1cb)
+2019-07-09T16:27:34.2487914+03:00 0HLO4E4EGC2T1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/products/2936bf9a-bc4c-4535-8241-15d35deec291.jpg   (ca22a1cb)
+2019-07-09T16:27:34.2618499+03:00 0HLO4E4EGC2SV:00000001 [INF] The file "/images/users/2f27f8c5-c0ff-42cb-ab7f-38e5a1fd2e14.jpg" was not modified (f1f8d725)
+2019-07-09T16:27:34.2770269+03:00 0HLO4E4EGC2T0:00000001 [INF] The file "/images/products/faefd58e-f647-4b76-84c1-ee43924a3289.jpg" was not modified (f1f8d725)
+2019-07-09T16:27:34.3442939+03:00 0HLO4E4EGC2SV:00000001 [INF] Request finished in 163.1752ms 304 image/jpeg (791a596a)
+2019-07-09T16:27:34.4409305+03:00 0HLO4E4EGC2T0:00000001 [INF] Request finished in 90.3936ms 304 image/jpeg (791a596a)
+2019-07-09T16:27:34.5059093+03:00 0HLO4E4EGC2T1:00000001 [INF] The file "/images/products/2936bf9a-bc4c-4535-8241-15d35deec291.jpg" was not modified (f1f8d725)
+2019-07-09T16:27:34.6059814+03:00 0HLO4E4EGC2T2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/homepage.js?v=j85rr-36mTuZxZbA-QAYmRmUFGpSrgUpA87LGKDJHpI   (ca22a1cb)
+2019-07-09T16:27:34.7788219+03:00 0HLO4E4EGC2T1:00000001 [INF] Request finished in 503.5144ms 304 image/jpeg (791a596a)
+2019-07-09T16:27:34.7888298+03:00 0HLO4E4EGC2T2:00000001 [INF] The file "/js/homepage.js" was not modified (f1f8d725)
+2019-07-09T16:27:34.7933998+03:00 0HLO4E4EGC2SS:00000001 [INF] Request finished in 882.2208ms 304 text/css (791a596a)
+2019-07-09T16:27:34.8347297+03:00 0HLO4E4EGC2SR:00000002 [INF] Request finished in 1511.7661ms 304 text/css (791a596a)
+2019-07-09T16:27:34.8393381+03:00 0HLO4E4EGC2T2:00000001 [INF] Request finished in 403.3472ms 304 application/javascript (791a596a)
+2019-07-09T16:33:14.7906853+03:00 0HLO4E4EGC2T3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-09T16:33:14.8464161+03:00 0HLO4E4EGC2T3:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:33:14.9294787+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("75"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:33:14.9435071+03:00 0HLO4E4EGC2T3:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-09T16:33:15.0084897+03:00 0HLO4E4EGC2T3:00000001 [INF] Authorization was successful. (0d575a54)
+2019-07-09T16:33:15.0189720+03:00 0HLO4E4EGC2T3:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:33:15.0475246+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:33:15.0538431+03:00 0HLO4E4EGC2T3:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T16:33:15.0621707+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 3.9402ms. (50a9e262)
+2019-07-09T16:33:15.0984912+03:00 0HLO4E4EGC2T3:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T16:33:15.1876807+03:00 0HLO4E4EGC2T3:00000001 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:33:15.1916227+03:00 0HLO4E4EGC2T3:00000001 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T16:33:15.2122734+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:15.2568127+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:15.2654280+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:15.3326591+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T16:33:15.6814040+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T16:33:16.0713407+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed ViewResult - view "Index" executed in 1003.6667ms. (f66409e9)
+2019-07-09T16:33:16.0762870+03:00 0HLO4E4EGC2T3:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1128.9851ms (afa2e885)
+2019-07-09T16:33:16.1228731+03:00 0HLO4E4EGC2T4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/css/mdb.min.css   (ca22a1cb)
+2019-07-09T16:33:16.1898341+03:00 0HLO4E4EGC2T5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/css/bootstrap.min.css   (ca22a1cb)
+2019-07-09T16:33:16.1939319+03:00 0HLO4E4EGC2T3:00000001 [INF] Request finished in 1367.9112ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T16:33:16.2473257+03:00 0HLO4E4EGC2T4:00000001 [INF] The file "/lib/mdbootstrap/css/mdb.min.css" was not modified (f1f8d725)
+2019-07-09T16:33:16.2473462+03:00 0HLO4E4EGC2T3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/categories.css?v=S0WVEGmiZ1T4GWCSHF1ZdmOncflILgBSPXXSalY2wBQ   (ca22a1cb)
+2019-07-09T16:33:16.2845350+03:00 0HLO4E4EGC2T3:00000002 [INF] The file "/css/categories.css" was not modified (f1f8d725)
+2019-07-09T16:33:16.2921096+03:00 0HLO4E4EGC2T4:00000001 [INF] Request finished in 185.3568ms 304 text/css (791a596a)
+2019-07-09T16:33:16.2976733+03:00 0HLO4E4EGC2T5:00000001 [INF] The file "/lib/mdbootstrap/css/bootstrap.min.css" was not modified (f1f8d725)
+2019-07-09T16:33:16.3629938+03:00 0HLO4E4EGC2T4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/bootstrap.min.js   (ca22a1cb)
+2019-07-09T16:33:16.3629951+03:00 0HLO4E4EGC2T3:00000002 [INF] Request finished in 121.4702ms 304 text/css (791a596a)
+2019-07-09T16:33:16.3708329+03:00 0HLO4E4EGC2T5:00000001 [INF] Request finished in 174.3701ms 304 text/css (791a596a)
+2019-07-09T16:33:16.3947220+03:00 0HLO4E4EGC2TD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/jvectormap/jquery-jvectormap-world-mill.js   (ca22a1cb)
+2019-07-09T16:33:16.4348773+03:00 0HLO4E4EGC2TE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/mdb.min.js   (ca22a1cb)
+2019-07-09T16:33:16.5172394+03:00 0HLO4E4EGC2TD:00000001 [INF] The file "/lib/jvectormap/jquery-jvectormap-world-mill.js" was not modified (f1f8d725)
+2019-07-09T16:33:16.5887453+03:00 0HLO4E4EGC2TC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-07-09T16:33:16.6269673+03:00 0HLO4E4EGC2TB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/popper.min.js   (ca22a1cb)
+2019-07-09T16:33:16.6505795+03:00 0HLO4E4EGC2TD:00000001 [INF] Request finished in 269.7036ms 304 application/javascript (791a596a)
+2019-07-09T16:33:16.6729385+03:00 0HLO4E4EGC2TF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/adminpanel.js?v=BVpG2kI0dohVj-sfo79q0BEflfr6sZuq6kFWV-fJsEU   (ca22a1cb)
+2019-07-09T16:33:16.6746994+03:00 0HLO4E4EGC2TC:00000001 [INF] The file "/lib/chart.js/dist/Chart.js" was not modified (f1f8d725)
+2019-07-09T16:33:16.7010316+03:00 0HLO4E4EGC2TF:00000001 [INF] The file "/js/adminpanel.js" was not modified (f1f8d725)
+2019-07-09T16:33:16.7169104+03:00 0HLO4E4EGC2TC:00000001 [INF] Request finished in 404.1386ms 304 application/javascript (791a596a)
+2019-07-09T16:33:16.7349260+03:00 0HLO4E4EGC2T4:00000002 [INF] Sending file. Request path: '"/lib/mdbootstrap/js/bootstrap.min.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\js\bootstrap.min.js"' (27b0a520)
+2019-07-09T16:33:16.7505851+03:00 0HLO4E4EGC2TF:00000001 [INF] Request finished in 80.4049ms 304 application/javascript (791a596a)
+2019-07-09T16:33:16.7551491+03:00 0HLO4E4EGC2T3:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/addons/datatables.min.js   (ca22a1cb)
+2019-07-09T16:33:16.7667045+03:00 0HLO4E4EGC2TG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-09T16:33:16.7874790+03:00 0HLO4E4EGC2T4:00000002 [INF] Request finished in 450.0736ms 200 application/javascript (791a596a)
+2019-07-09T16:33:16.8331417+03:00 0HLO4E4EGC2TH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/subcategories.js?v=83i1JhsPHjvWYZZwPMXecxu9TJrZOlt-lUKlGCiOAH0   (ca22a1cb)
+2019-07-09T16:33:16.8384371+03:00 0HLO4E4EGC2TG:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:33:16.8491280+03:00 0HLO4E4EGC2T9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/users.css?v=nxHD5DGuaoDnHfcC-M3wSBT2XID8fogSkooIIDjnZMA   (ca22a1cb)
+2019-07-09T16:33:16.8644628+03:00 0HLO4E4EGC2TI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/products.js?v=KuyIJr-1mY2NKaQaSEund8rW3VrYt1En5HyNx0wCyZw   (ca22a1cb)
+2019-07-09T16:33:16.8894736+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("36"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:33:16.9183811+03:00 0HLO4E4EGC2TG:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-09T16:33:16.9249932+03:00 0HLO4E4EGC2TI:00000001 [INF] The file "/js/products.js" was not modified (f1f8d725)
+2019-07-09T16:33:16.9394589+03:00 0HLO4E4EGC2TG:00000001 [INF] Authorization was successful. (0d575a54)
+2019-07-09T16:33:16.9571003+03:00 0HLO4E4EGC2TG:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T16:33:16.9899596+03:00 0HLO4E4EGC2TH:00000001 [INF] Sending file. Request path: '"/js/subcategories.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\js\subcategories.js"' (27b0a520)
+2019-07-09T16:33:17.0442290+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("59"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T16:33:17.0645921+03:00 0HLO4E4EGC2TG:00000001 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T16:33:17.0693102+03:00 0HLO4E4EGC2TH:00000001 [INF] Request finished in 267.7939ms 200 application/javascript (791a596a)
+2019-07-09T16:33:17.0741102+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.2794ms. (50a9e262)
+2019-07-09T16:33:17.0835493+03:00 0HLO4E4EGC2TI:00000001 [INF] Request finished in 171.5869ms 304 application/javascript (791a596a)
+2019-07-09T16:33:17.0987447+03:00 0HLO4E4EGC2T5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/categories.js?v=PHBc_gQvrDaQ9rtOv34gp4CK6-6TXQTqokZy3xuoz4g   (ca22a1cb)
+2019-07-09T16:33:17.1070092+03:00 0HLO4E4EGC2TG:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T16:33:17.1323890+03:00 0HLO4E4EGC2TB:00000001 [INF] Sending file. Request path: '"/lib/mdbootstrap/js/popper.min.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\js\popper.min.js"' (27b0a520)
+2019-07-09T16:33:17.1498017+03:00 0HLO4E4EGC2T5:00000002 [INF] The file "/js/categories.js" was not modified (f1f8d725)
+2019-07-09T16:33:17.1695675+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:17.2135095+03:00 0HLO4E4EGC2TB:00000001 [INF] Request finished in 926.9482ms 200 application/javascript (791a596a)
+2019-07-09T16:33:17.2234508+03:00 0HLO4E4EGC2T5:00000002 [INF] Request finished in 221.8252ms 304 application/javascript (791a596a)
+2019-07-09T16:33:17.2314363+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:17.2478698+03:00 0HLO4E4EGC2T8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/admincontent.css?v=52vtMuXtfHLkxOybZ1oaK2YWwp8AHK_G-U_vA8SKPtQ   (ca22a1cb)
+2019-07-09T16:33:17.2607726+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T16:33:17.2624822+03:00 0HLO4E4EGC2T9:00000001 [INF] The file "/css/users.css" was not modified (f1f8d725)
+2019-07-09T16:33:17.2826167+03:00 0HLO4E4EGC2T8:00000001 [INF] The file "/css/admincontent.css" was not modified (f1f8d725)
+2019-07-09T16:33:17.2955383+03:00 0HLO4E4EGC2T9:00000001 [INF] Request finished in 1078.4529ms 304 text/css (791a596a)
+2019-07-09T16:33:17.3074559+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T16:33:17.3519700+03:00 0HLO4E4EGC2T7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/dashboard.css?v=1_gyNwtNMiVhTvFiOqMm9s0ib3YiTVDV08E9DjHtivs   (ca22a1cb)
+2019-07-09T16:33:17.3585044+03:00 0HLO4E4EGC2T8:00000001 [INF] Request finished in 1135.6595ms 304 text/css (791a596a)
+2019-07-09T16:33:17.3673830+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T16:33:17.3771336+03:00 0HLO4E4EGC2T6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/css/addons/datatables.min.css   (ca22a1cb)
+2019-07-09T16:33:17.3893346+03:00 0HLO4E4EGC2T7:00000001 [INF] The file "/css/dashboard.css" was not modified (f1f8d725)
+2019-07-09T16:33:17.4308868+03:00 0HLO4E4EGC2T7:00000001 [INF] Request finished in 1222.01ms 304 text/css (791a596a)
+2019-07-09T16:33:17.4599598+03:00 0HLO4E4EGC2T6:00000001 [INF] The file "/lib/mdbootstrap/css/addons/datatables.min.css" was not modified (f1f8d725)
+2019-07-09T16:33:17.4937897+03:00 0HLO4E4EGC2T6:00000001 [INF] Request finished in 1297.8146ms 304 text/css (791a596a)
+2019-07-09T16:33:17.5249573+03:00 0HLO4E4EGC2TA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/js/jquery-3.4.1.min.js   (ca22a1cb)
+2019-07-09T16:33:17.7443988+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed ViewResult - view "Index" executed in 645.175ms. (f66409e9)
+2019-07-09T16:33:17.7705296+03:00 0HLO4E4EGC2TG:00000001 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 826.4823ms (afa2e885)
+2019-07-09T16:33:17.8394337+03:00 0HLO4E4EGC2TG:00000001 [INF] Request finished in 1062.2651ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T16:33:18.0700922+03:00 0HLO4E4EGC2TC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/font/roboto/Roboto-Regular.woff2   (ca22a1cb)
+2019-07-09T16:33:18.0774117+03:00 0HLO4E4EGC2TD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/font/roboto/Roboto-Light.woff2   (ca22a1cb)
+2019-07-09T16:33:18.1249561+03:00 0HLO4E4EGC2T3:00000003 [INF] Sending file. Request path: '"/lib/mdbootstrap/js/addons/datatables.min.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\js\addons\datatables.min.js"' (27b0a520)
+2019-07-09T16:33:18.1858418+03:00 0HLO4E4EGC2TC:00000002 [INF] Sending file. Request path: '"/lib/mdbootstrap/font/roboto/Roboto-Regular.woff2"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\font\roboto\Roboto-Regular.woff2"' (27b0a520)
+2019-07-09T16:33:18.2293883+03:00 0HLO4E4EGC2TD:00000002 [INF] Sending file. Request path: '"/lib/mdbootstrap/font/roboto/Roboto-Light.woff2"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\font\roboto\Roboto-Light.woff2"' (27b0a520)
+2019-07-09T16:33:18.2702715+03:00 0HLO4E4EGC2TC:00000002 [INF] Request finished in 200.5956ms 200 font/woff2 (791a596a)
+2019-07-09T16:33:18.2755016+03:00 0HLO4E4EGC2TD:00000002 [INF] Request finished in 212.4509ms 200 font/woff2 (791a596a)
+2019-07-09T16:33:18.3157921+03:00 0HLO4E4EGC2T3:00000003 [INF] Request finished in 1582.9461ms 200 application/javascript (791a596a)
+2019-07-09T16:33:18.4841817+03:00 0HLO4E4EGC2TA:00000001 [INF] Sending file. Request path: '"/lib/mdbootstrap/js/jquery-3.4.1.min.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\js\jquery-3.4.1.min.js"' (27b0a520)
+2019-07-09T16:33:18.6168980+03:00 0HLO4E4EGC2TE:00000001 [INF] Sending file. Request path: '"/lib/mdbootstrap/js/mdb.min.js"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\js\mdb.min.js"' (27b0a520)
+2019-07-09T16:33:18.6211520+03:00 0HLO4E4EGC2TA:00000001 [INF] Request finished in 2370.458ms 200 application/javascript (791a596a)
+2019-07-09T16:33:18.6685038+03:00 0HLO4E4EGC2TE:00000001 [INF] Request finished in 2268.6984ms 200 application/javascript (791a596a)
+2019-07-09T16:33:18.9115745+03:00 0HLO4E4EGC2TF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/manifest.json   (ca22a1cb)
+2019-07-09T16:33:18.9842649+03:00 0HLO4E4EGC2TF:00000002 [INF] The file "/manifest.json" was not modified (f1f8d725)
+2019-07-09T16:33:19.0246267+03:00 0HLO4E4EGC2TF:00000002 [INF] Request finished in 127.712ms 304 application/json (791a596a)
+2019-07-09T21:26:44.7276018+03:00 0HLO4JBVBFN2I:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:54183/  0 (ca22a1cb)
+2019-07-09T21:26:44.7275941+03:00 0HLO4JBVBFN2H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/   (ca22a1cb)
+2019-07-09T21:26:45.3510134+03:00 0HLO4JBVBFN2I:00000001 [INF] Request finished in 632.3434ms 200  (791a596a)
+2019-07-09T21:26:48.5988445+03:00 0HLO4JBVBFN2H:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:26:53.1185471+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("308"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:26:57.1280788+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("1,620"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AboutMe], [e].[AccessFailedCount], [e].[Address], [e].[City], [e].[ConcurrencyStamp], [e].[Country], [e].[DateCreated], [e].[Email], [e].[EmailConfirmed], [e].[FirstName], [e].[LastName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[Photo], [e].[SecurityQuestion], [e].[SecurityQuestionAnswer], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2019-07-09T21:26:58.1941759+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("15"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-07-09T21:26:58.9317840+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("370"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:26:59.1404705+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("61"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-07-09T21:26:59.2284266+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-07-09T21:27:00.5290252+03:00 0HLO4JBVBFN2H:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\"}". Executing action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" (a44c0341)
+2019-07-09T21:27:00.9166796+03:00 0HLO4JBVBFN2H:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:01.0959815+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("70"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:01.1583150+03:00 0HLO4JBVBFN2H:00000001 [INF] Executing action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T21:27:01.2330056+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed action method "ComputerStore.Controllers.HomeController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 53.7762ms. (50a9e262)
+2019-07-09T21:27:01.4906823+03:00 0HLO4JBVBFN2H:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T21:27:01.9322396+03:00 0HLO4JBVBFN2H:00000001 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:01.9516471+03:00 0HLO4JBVBFN2H:00000001 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:01.9643340+03:00 0HLO4JBVBFN2H:00000001 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:01.9681774+03:00 0HLO4JBVBFN2H:00000001 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:02.3834836+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("17"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [p].[Id], [p].[Name], [p].[Price], [p].[Description]
+FROM [Products] AS [p]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2019-07-09T21:27:02.4515856+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("15"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p.Images].[Id], [p.Images].[ForPreview], [p.Images].[Name], [p.Images].[ProductID], [p.Images].[Url], [t].[Id]
+FROM [Images] AS [p.Images]
+INNER JOIN (
+    SELECT TOP(@__p_0) [p0].[Id]
+    FROM [Products] AS [p0]
+    ORDER BY [p0].[Id] DESC
+) AS [t] ON [p.Images].[ProductID] = [t].[Id]
+WHERE [p.Images].[ForPreview] = 1
+ORDER BY [t].[Id] DESC" (0723d8ff)
+2019-07-09T21:27:04.4148377+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+ORDER BY [c].[Id]" (0723d8ff)
+2019-07-09T21:27:04.4727406+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products].[Id], [c.Products].[AmountInStock], [c.Products].[CategoryID], [c.Products].[DateCreated], [c.Products].[Description], [c.Products].[Name], [c.Products].[Price], [c.Products].[StockPrice], [c.Products].[SubcategoryID]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT [c0].[Id]
+    FROM [Categories] AS [c0]
+) AS [t] ON [c.Products].[CategoryID] = [t].[Id]
+ORDER BY [t].[Id], [c.Products].[Id]" (0723d8ff)
+2019-07-09T21:27:04.5957678+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Products.Images].[Id], [c.Products.Images].[ForPreview], [c.Products.Images].[Name], [c.Products.Images].[ProductID], [c.Products.Images].[Url]
+FROM [Images] AS [c.Products.Images]
+INNER JOIN (
+    SELECT DISTINCT [c.Products0].[Id], [t0].[Id] AS [Id0]
+    FROM [Products] AS [c.Products0]
+    INNER JOIN (
+        SELECT [c1].[Id]
+        FROM [Categories] AS [c1]
+    ) AS [t0] ON [c.Products0].[CategoryID] = [t0].[Id]
+) AS [t1] ON [c.Products.Images].[ProductID] = [t1].[Id]
+ORDER BY [t1].[Id0], [t1].[Id]" (0723d8ff)
+2019-07-09T21:27:04.6315814+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.Subcategories].[Id], [c.Subcategories].[CategoryID], [c.Subcategories].[Name]
+FROM [Subcategories] AS [c.Subcategories]
+INNER JOIN (
+    SELECT [c2].[Id]
+    FROM [Categories] AS [c2]
+) AS [t2] ON [c.Subcategories].[CategoryID] = [t2].[Id]
+ORDER BY [t2].[Id]" (0723d8ff)
+2019-07-09T21:27:04.7560191+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T21:27:04.8242154+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:27:05.4222288+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed ViewResult - view "Index" executed in 4003.7977ms. (f66409e9)
+2019-07-09T21:27:05.5522265+03:00 0HLO4JBVBFN2I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/css/cart.css?v=UeJRptEMW9EkKegehbWoE2B0j1Fk2ol1icpfyk37aho   (ca22a1cb)
+2019-07-09T21:27:05.5991184+03:00 0HLO4JBVBFN2H:00000001 [INF] Executed action "ComputerStore.Controllers.HomeController.Index (ComputerStore)" in 5053.7395ms (afa2e885)
+2019-07-09T21:27:05.7321911+03:00 0HLO4JBVBFN2I:00000002 [INF] The file "/css/cart.css" was not modified (f1f8d725)
+2019-07-09T21:27:05.8251711+03:00 0HLO4JBVBFN2J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/productpreview.js?v=zMfZ4F91UtFBaSSeMiDeMdiaTo_OwOkOnsHh9PDLeJ0   (ca22a1cb)
+2019-07-09T21:27:05.8789571+03:00 0HLO4JBVBFN2K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44347/js/cart.js?v=Oe7lkMJ7t6kzupcaRMWTlnwwMqKxZg3djZwZlufHae4   (ca22a1cb)
+2019-07-09T21:27:05.9084147+03:00 0HLO4JBVBFN2I:00000002 [INF] Request finished in 416.0371ms 304 text/css (791a596a)
+2019-07-09T21:27:06.6213712+03:00 0HLO4JBVBFN2H:00000001 [INF] Request finished in 21467.886ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T21:27:06.7261942+03:00 0HLO4JBVBFN2K:00000001 [INF] The file "/js/cart.js" was not modified (f1f8d725)
+2019-07-09T21:27:06.7303402+03:00 0HLO4JBVBFN2J:00000001 [INF] The file "/js/productpreview.js" was not modified (f1f8d725)
+2019-07-09T21:27:07.6094262+03:00 0HLO4JBVBFN2K:00000001 [INF] Request finished in 981.5991ms 304 application/javascript (791a596a)
+2019-07-09T21:27:07.6641800+03:00 0HLO4JBVBFN2J:00000001 [INF] Request finished in 1094.6252ms 304 application/javascript (791a596a)
+2019-07-09T21:27:25.1940910+03:00 0HLO4JBVBFN2I:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-09T21:27:25.2598105+03:00 0HLO4JBVBFN2I:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:25.3143590+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("41"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:25.3272673+03:00 0HLO4JBVBFN2I:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-09T21:27:25.3964462+03:00 0HLO4JBVBFN2I:00000003 [INF] Authorization was successful. (0d575a54)
+2019-07-09T21:27:25.4018120+03:00 0HLO4JBVBFN2I:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:25.4714103+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("41"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:25.4803583+03:00 0HLO4JBVBFN2I:00000003 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T21:27:25.5008584+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.6444ms. (50a9e262)
+2019-07-09T21:27:25.5811771+03:00 0HLO4JBVBFN2I:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T21:27:25.6881603+03:00 0HLO4JBVBFN2I:00000003 [WRN] The Include operation for navigation '"[c].Products.Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:25.6975423+03:00 0HLO4JBVBFN2I:00000003 [WRN] The Include operation for navigation '"[c].Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:25.7083105+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:25.7477849+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:25.7533170+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:25.8225083+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("29"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T21:27:26.1032302+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:27:26.4736507+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed ViewResult - view "Index" executed in 931.3523ms. (f66409e9)
+2019-07-09T21:27:26.4774549+03:00 0HLO4JBVBFN2H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-09T21:27:26.4856976+03:00 0HLO4JBVBFN2I:00000003 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 1150.4921ms (afa2e885)
+2019-07-09T21:27:26.5515187+03:00 0HLO4JBVBFN2H:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:26.5981614+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:26.6044526+03:00 0HLO4JBVBFN2I:00000003 [INF] Request finished in 1426.2254ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T21:27:26.6077149+03:00 0HLO4JBVBFN2H:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-09T21:27:26.6175880+03:00 0HLO4JBVBFN2H:00000002 [INF] Authorization was successful. (0d575a54)
+2019-07-09T21:27:26.6273134+03:00 0HLO4JBVBFN2H:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:26.6378508+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:26.6477729+03:00 0HLO4JBVBFN2H:00000002 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T21:27:26.6514892+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5128ms. (50a9e262)
+2019-07-09T21:27:26.6617595+03:00 0HLO4JBVBFN2H:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T21:27:26.6775372+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:26.6854680+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:26.6967479+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:26.7254126+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T21:27:26.7331374+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:27:27.2465287+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed ViewResult - view "Index" executed in 462.5762ms. (f66409e9)
+2019-07-09T21:27:27.2824144+03:00 0HLO4JBVBFN2H:00000002 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 639.0899ms (afa2e885)
+2019-07-09T21:27:27.3601019+03:00 0HLO4JBVBFN2H:00000002 [INF] Request finished in 851.7376ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T21:27:37.1308462+03:00 0HLO4JBVBFN2K:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/lib/mdbootstrap/font/roboto/Roboto-Bold.woff2   (ca22a1cb)
+2019-07-09T21:27:37.1892253+03:00 0HLO4JBVBFN2K:00000002 [INF] Sending file. Request path: '"/lib/mdbootstrap/font/roboto/Roboto-Bold.woff2"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\lib\mdbootstrap\font\roboto\Roboto-Bold.woff2"' (27b0a520)
+2019-07-09T21:27:37.2095205+03:00 0HLO4JBVBFN2K:00000002 [INF] Request finished in 76.4868ms 200 font/woff2 (791a596a)
+2019-07-09T21:27:46.8053751+03:00 0HLO4JBVBFN2J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44347/Admin   (ca22a1cb)
+2019-07-09T21:27:46.8168067+03:00 0HLO4JBVBFN2J:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:46.8258602+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:46.8338469+03:00 0HLO4JBVBFN2J:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Admin\"}". Executing action "ComputerStore.Controllers.AdminController.Index (ComputerStore)" (a44c0341)
+2019-07-09T21:27:46.8376507+03:00 0HLO4JBVBFN2J:00000002 [INF] Authorization was successful. (0d575a54)
+2019-07-09T21:27:46.8425728+03:00 0HLO4JBVBFN2J:00000002 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:46.8556398+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:46.8640951+03:00 0HLO4JBVBFN2J:00000002 [INF] Executing action method "ComputerStore.Controllers.AdminController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T21:27:46.8766808+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed action method "ComputerStore.Controllers.AdminController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 4.9463ms. (50a9e262)
+2019-07-09T21:27:46.9292419+03:00 0HLO4JBVBFN2J:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T21:27:46.9644402+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:46.9685443+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:46.9721957+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:46.9758958+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0103146+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]" (0723d8ff)
+2019-07-09T21:27:47.0199679+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0239943+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0271803+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0316278+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0486151+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[DateCreated] = CONVERT(date, GETDATE())" (0723d8ff)
+2019-07-09T21:27:47.0591628+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[o].Lines.Product"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0675907+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Orders] AS [o]" (0723d8ff)
+2019-07-09T21:27:47.0746371+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[o].Lines.Product"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.0883733+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[DateCreated] = CONVERT(date, GETDATE())" (0723d8ff)
+2019-07-09T21:27:47.1055918+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]" (0723d8ff)
+2019-07-09T21:27:47.1466431+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AspNetUsers] AS [u]
+WHERE [u].[DateCreated] = CONVERT(date, GETDATE())" (0723d8ff)
+2019-07-09T21:27:47.1793953+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[o].Lines.Product"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2203652+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT SUM([o].[TotalPrice])
+FROM [Orders] AS [o]
+WHERE [o].[DateCreated] = CONVERT(date, GETDATE())" (0723d8ff)
+2019-07-09T21:27:47.2317832+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2377718+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2418730+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2461047+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2610926+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT SUM([p].[AmountInStock])
+FROM [Products] AS [p]" (0723d8ff)
+2019-07-09T21:27:47.2713489+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Images"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2753817+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Properties"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2795514+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Category.Subcategories"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.2892184+03:00 0HLO4JBVBFN2J:00000002 [WRN] The Include operation for navigation '"[p].Subcategory.FilterOptions.Values"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-07-09T21:27:47.3094164+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[AmountInStock] = 0" (0723d8ff)
+2019-07-09T21:27:47.3558458+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("13"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+ORDER BY [u].[DateCreated] DESC" (0723d8ff)
+2019-07-09T21:27:47.3707084+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T21:27:47.4097202+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:27:47.4512374+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed ViewResult - view "Index" executed in 568.5772ms. (f66409e9)
+2019-07-09T21:27:47.4561018+03:00 0HLO4JBVBFN2J:00000002 [INF] Executed action "ComputerStore.Controllers.AdminController.Index (ComputerStore)" in 617.7373ms (afa2e885)
+2019-07-09T21:27:47.6459477+03:00 0HLO4JBVBFN2H:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/default.png   (ca22a1cb)
+2019-07-09T21:27:47.6460091+03:00 0HLO4JBVBFN2I:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/41e4c672-3807-44af-96ac-af1e5df82ac5.jpg   (ca22a1cb)
+2019-07-09T21:27:47.7018316+03:00 0HLO4JBVBFN2J:00000002 [INF] Request finished in 872.0998ms 200 text/html; charset=utf-8 (791a596a)
+2019-07-09T21:27:47.7107109+03:00 0HLO4JBVBFN2K:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/images/users/798894ec-f495-419d-bd28-e3c61081db3a.jpg   (ca22a1cb)
+2019-07-09T21:27:47.8616183+03:00 0HLO4JBVBFN2I:00000004 [INF] Sending file. Request path: '"/images/users/41e4c672-3807-44af-96ac-af1e5df82ac5.jpg"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\users\41e4c672-3807-44af-96ac-af1e5df82ac5.jpg"' (27b0a520)
+2019-07-09T21:27:47.8703278+03:00 0HLO4JBVBFN2H:00000003 [INF] Sending file. Request path: '"/images/users/default.png"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\users\default.png"' (27b0a520)
+2019-07-09T21:27:47.8940040+03:00 0HLO4JBVBFN2I:00000004 [INF] Request finished in 309.2364ms 200 image/jpeg (791a596a)
+2019-07-09T21:27:47.9177203+03:00 0HLO4JBVBFN2H:00000003 [INF] Request finished in 312.6912ms 200 image/png (791a596a)
+2019-07-09T21:27:48.0015790+03:00 0HLO4JBVBFN2K:00000003 [INF] Sending file. Request path: '"/images/users/798894ec-f495-419d-bd28-e3c61081db3a.jpg"'. Physical path: '"D:\dotnet-workspace\ASP.NET\ComputerStore\ComputerStore\wwwroot\images\users\798894ec-f495-419d-bd28-e3c61081db3a.jpg"' (27b0a520)
+2019-07-09T21:27:48.0733110+03:00 0HLO4JBVBFN2K:00000003 [INF] Request finished in 434.2272ms 200 image/jpeg (791a596a)
+2019-07-09T21:27:51.4798446+03:00 0HLO4JBVBFN2J:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44347/admin/categories   (ca22a1cb)
+2019-07-09T21:27:51.5010653+03:00 0HLO4JBVBFN2J:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppIdentityDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:51.5126194+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:51.5183752+03:00 0HLO4JBVBFN2J:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Category\"}". Executing action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" (a44c0341)
+2019-07-09T21:27:51.5221401+03:00 0HLO4JBVBFN2J:00000003 [INF] Authorization was successful. (0d575a54)
+2019-07-09T21:27:51.5257906+03:00 0HLO4JBVBFN2J:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2019-07-09T21:27:51.5348112+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2019-07-09T21:27:51.5385523+03:00 0HLO4JBVBFN2J:00000003 [INF] Executing action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" - Validation state: Valid (dad538d7)
+2019-07-09T21:27:51.5422198+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed action method "ComputerStore.Controllers.CategoryController.Index (ComputerStore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.3392ms. (50a9e262)
+2019-07-09T21:27:51.5462301+03:00 0HLO4JBVBFN2J:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-07-09T21:27:51.5540031+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:51.5592639+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:51.5680170+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2019-07-09T21:27:51.5986427+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AboutMe], [u].[AccessFailedCount], [u].[Address], [u].[City], [u].[ConcurrencyStamp], [u].[Country], [u].[DateCreated], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Photo], [u].[SecurityQuestion], [u].[SecurityQuestionAnswer], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-07-09T21:27:51.6083113+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-07-09T21:27:51.7588748+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed ViewResult - view "Index" executed in 162.4674ms. (f66409e9)
+2019-07-09T21:27:51.7727193+03:00 0HLO4JBVBFN2J:00000003 [INF] Executed action "ComputerStore.Controllers.CategoryController.Index (ComputerStore)" in 240.6434ms (afa2e885)
+2019-07-09T21:27:51.8211519+03:00 0HLO4JBVBFN2J:00000003 [INF] Request finished in 318.9674ms 200 text/html; charset=utf-8 (791a596a)

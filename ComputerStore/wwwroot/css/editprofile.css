@@ -1,0 +1,56 @@
+﻿
+#editUser_container {
+    margin: 0;
+    padding: 10px 15px;
+}
+#editUser_container #photo_container {
+    margin: 10px 15px 30px 15px;
+}
+#editUser_container #mainFormContainer {
+    margin-top: 25px;
+}
+#photo_container .overlay {
+    position: relative;
+}
+#photo_container #uploadFileBtn {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 230px;
+    height: 50px;
+    border: none;
+    transition: .5s ease;
+    font-size: 20px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+}
+#photo_container #uploadFileBtn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+#editUserForm .btn_submit, #editUserForm .change_password_btn {
+    display: inline-block;
+    border-radius: 25px;
+    color: white;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    padding: 5px 12px;
+    margin: 5px;
+}
+#editUserForm .btn_submit {
+    background-color: #8D9440;
+}
+#editUserForm .btn_submit:hover {
+    background-color: #666b2e;
+}
+#editUserForm .change_password_btn {
+    background-color: #2A4B7C;
+}
+#editUserForm .change_password_btn:hover {
+    background-color: #213a5f; 
+}
+@media screen and (max-width: 600px) {
+    #editUserForm input, #editUserForm select, #editUserForm textarea {
+        width: 100%;
+    }
+}

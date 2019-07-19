@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Manage Roles";
+}
+
+<div id="roles_container" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <form id="roleForm">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div id="role_name_error" class="font-weight-bold text-danger"></div>
+                    <input type="text"  id="role_name" class="form-control" placeholder="New Role..."/>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" id="add_role_btn" class="btn btn-primary" style="width: 250px; height: 45px; border-radius: 25px;">Add Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div id="no_roles_message" class="text-center" style="display: none;font-family: Numans, sans-serif;">
+                <h4>No roles were found!</h4>
+            </div>
+            <table id="roles_table" class="table table-sm table-hover table-bordered">
+                <thead class="text-white" style="background-color: #C62168;">
+                    <tr class="text-center">
+                        <th>Name</th>
+                        <th>Number of users</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

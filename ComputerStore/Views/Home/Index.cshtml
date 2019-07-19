@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="home_page" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="welcome_message card col-sm-6 text-centerp-2" style="border-top-left-radius: 20px;border-top-right-radius: 20px;color: #6B5B95; ">
+            <div class="card-body">
+                <p style="font-weight: 600;font-size: 1.5rem;">Welcome to ComputerStore!</p>
+                <hr />
+                <p style="font-weight: 600;font-size: 1.2rem;">Are you looking for a good computer or periferals?</p>
+                <p style="font-weight: 600;font-size: 1.2rem;">Then you're in the right place.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="p-2" style="margin: 280px 10px 10px 10px;">Newest Products</h3>
+    <div class="row">
+        <div id="newest_products">
+            <ul class="bxslider">
+                @foreach (Product p in Model)
+                {
+                    <li class="card">
+                        <div class="card-header" style="background-color: white;height: 400px;">
+                            @if (p.Images.Count() == 0)
+                            {
+                                <img src="~/images/products/default.jpg" class="img-fluid d-block my-auto mx-auto" alt="product_name" />
+                            }
+                            else
+                            {
+                                Image previewImage = p.Images.FirstOrDefault(i => i.ForPreview);
+                                @if (previewImage != null)
+                                {
+                                    <img src="@previewImage.Url" class="img-fluid d-block my-auto mx-auto" alt="product_name" />
+                                }
+                                else
+                                {
+                                    <img src="@p.Images.FirstOrDefault().Url" class="img-fluid d-block my-auto mx-auto" alt="product_name" />
+                                }
+
+                            }
+
+                        </div>
+                        <div class="card-body" style="height: 300px;">
+                            <a class="font-weight-bold text-decoration-none" asp-action="ProductPreview" asp-controller="Home" asp-route-productId="@p.Id">@p.Name</a>
+                            <p class="font-weight-bold"><span>$</span>@p.Price</p>
+                            <ul>
+                                @if (!string.IsNullOrEmpty(p.Description))
+                                {
+                                    IEnumerable<string> descriptionLines = p.Description.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                                    @foreach (string line in descriptionLines)
+                                    {
+                                        <li>@line</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AppUser>
+@inject UserManager<AppUser> userManager
+@{ 
+    ViewData["Title"] = "Manage Users";
+    var id = 0;
+}
+
+<div id="users_container" class="container-fluid">
+        <div class="row justify-content-center">
+            @foreach (AppUser user in Model)
+            {
+            <div id="user_card" class="card col-lg-3 col-md-5 col-sm-10">
+                <div class="m-1 p-1 text-center">
+                    @if (string.IsNullOrEmpty(user.Photo))
+                    {
+                        <img src="~/images/users/default.png" alt="user_photo" height="80" width="80" />
+                    }
+                    else
+                    {
+                        <img src="@user.Photo" alt="user_photo" class="rounded-circle" height="80" width="80" />
+                    }
+                    <p style="font-size: 1.4rem;font-weight:600; margin: 0;">@user.FirstName</p>
+                    <p class="badge badge-info badge-pill m-0">@userManager.GetRolesAsync(user).Result.FirstOrDefault()</p>
+                </div>
+                <div class="text-center m-1 p-1">
+                    @{ id = id + 1;}
+                    <form id="deleteUserForm" asp-action="DeleteUser" asp-controller="User" asp-route-id="@user.Id" method="post">
+                        <a asp-action="ChangeRole" asp-controller="User" asp-route-id="@user.Id" class="btn btn-outline-success m-1"><i class="fas fa-user-cog"></i> Change Role</a>
+                        <button type="button" class="btn btn-outline-danger m-1" data-toggle="modal" data-target="@("#myUserModal" + id)"><i class="fas fa-user-lock"></i> Delete</button>
+                        <div class="modal fade" id="@("myUserModal" + id)">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-danger text-white">
+                                        <h4 class="modal-title">Delete user</h4>
+                                        <button type='button' class='close' data-dismiss='modal'><i class='fas fa-window-close text-white'></i></button>
+                                    </div>
+                                    <div class="modal-body" style="font-size: 0.9rem; font-family: Numans, sans-serif;">
+                                        <i class='fas fa-exclamation-triangle fa-lg text-danger'></i> Do you really want to delete user <b>@user.FirstName</b> ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger m-1" onclick="$('#deleteUserForm').submit();" data-dismiss="modal">Delete</button>
+                                        <button type="button" class="btn btn-outline-secondary m-1" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            }
+        </div>
+</div>
+

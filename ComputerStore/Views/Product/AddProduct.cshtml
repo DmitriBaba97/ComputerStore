@@ -1,0 +1,88 @@
+﻿@model Product
+@inject ICategoryRepository categoryRepos
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div id="addProduct_container" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12 m-2 p-2">
+            <form id="addProductForm" enctype="multipart/form-data" asp-action="AddProduct" asp-controller="Product" method="post">
+                <div class="form-group d-flex flex-column">
+                    <div id="product_name_error" class="text-danger font-weight-bold text-center"><span asp-validation-for="Name"></span></div>
+                    <div class="d-flex flex-row">
+                        <label class="font-weight-bold" asp-for="Name" style="width: 120px;">Name:</label>
+                        <input asp-for="Name" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div id="category_name_error" class="text-danger font-weight-bold text-center"></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Category:</label>
+                        <select id="selectCategory" class="form-control" style="width: calc(100% - 120px);">
+                            <option value="">Select Category</option>
+                            @foreach (Category category in categoryRepos.Categories)
+                            {
+                                <option value="@category.Name">@category.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <input type="hidden" asp-for="CategoryID" />
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div id="subcategory_name_error" class="text-danger font-weight-bold text-center"></div>
+                    <div class="d-flex">
+                        <label class="font-weight-bold" style="width: 120px;">Subcategory:</label>
+                        <select id="selectSubcategory" class="form-control" style="width: calc(100% - 120px);">
+                            <option value="">Select Subcategory</option>
+                        </select>
+                    </div>
+                    <input type="hidden" asp-for="SubcategoryID" />
+                </div>
+                <div id="productPropertiesContainer"></div>
+                <div class="form-group d-flex flex-column">
+                    <div id="product_price_error" class="text-danger font-weight-bold text-center"><span asp-validation-for="Price"></span></div>
+                    <div class="d-flex flex-row">
+                        <label class="font-weight-bold" asp-for="Price" style="width: 120px;">Price:</label>
+                        <input asp-for="Price" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="StockPrice"></span></div>
+                    <div class="d-flex flex-row">
+                        <label class="font-weight-bold" asp-for="StockPrice" style="width: 120px;">Stock Price:</label>
+                        <input asp-for="StockPrice" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <div class="text-danger font-weight-bold text-center"><span asp-validation-for="AmountInStock"></span></div>
+                    <div class="d-flex flex-row">
+                        <label class="font-weight-bold" asp-for="AmountInStock" style="width: 120px;">Amount in Stock:</label>
+                        <input asp-for="AmountInStock" min="0" class="form-control" style="width: calc(100% - 120px);" />
+                    </div>
+                </div>
+                <input type="hidden" asp-for="DateCreated" value="@DateTime.Now" />
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Description:</label>
+                    <textarea asp-for="Description" class="form-control" cols="5" rows="50" style="width: calc(100% - 120px); height: 150px;"></textarea>
+                </div>
+                <div class="form-group d-flex">
+                    <label class="font-weight-bold" style="width: 120px;">Images:</label>
+                    <div class="d-flex flex-column align-items-center images_control" style="width: calc(100% - 120px);">
+                        <input type="file" multiple id="uploadFile" style="display: none;" onchange="uploadImages('#addProductForm')" />
+                        <button type="button" id="uploadFileBtn" class="btn btn-outline-secondary w-100">Upload images <i class="fas fa-images"></i></button>
+                        <div class="progress" style="width: 250px; height: 25px; margin: 10px;background-color: lightblue; display: none;">
+                            <div id="progressBar" class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="images_container m-2 p-2 w-100 h-auto clearfix"></div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary" style="width: 60%; height: 45px; border-radius: 25px;">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

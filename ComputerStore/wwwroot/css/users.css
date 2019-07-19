@@ -1,0 +1,8 @@
+﻿#users_container #user_card {
+    display: block;
+    margin: 10px 15px;
+    padding: 8px 16px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(207,201,207,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(207,201,207,1);
+    box-shadow: 10px 10px 5px 0px rgba(207,201,207,1);
+}

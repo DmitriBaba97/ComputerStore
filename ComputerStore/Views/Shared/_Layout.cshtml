@@ -1,0 +1,143 @@
+﻿@inject ICategoryRepository categoryRepository
+@inject UserManager<AppUser> userManager
+@inject Cart  cart
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" asp-href-include="~/lib/fontawesome/css/*.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Numans" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800,800i,900,900i&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="~/css/mainpagenavbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/productpreview.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true"/>
+</head>
+<body style="background-color: #F5F5F5;">
+    <nav id="top_navbar" class="navbar navbar-expand-sm navbar-dark ">
+        <a asp-action="Index" asp-controller="Home" class="navbar-brand">ComputerStore</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainToggler" style="border-width: 3px; border-color: black; background-color: black;">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainToggler">
+            <div class="navbar-nav mr-auto nav-left">
+                <div class="category_menu">
+                    <button type="button" class="menu_button" data-toggle="dropdown">
+                        <i class="fas fa-bars fa-lg"></i> Categories
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="p-2 text-white text-center" style="background: #6B5B95;">
+                            <h2>Category Menu</h2>
+                        </div>
+                        @foreach (var category in categoryRepository.Categories)
+                        {
+                            <div class="menu-column col-lg-4 col-md-12 col-sm-12">
+                                <div class="text-center">
+                                    <a asp-action="CategoryProducts" asp-controller="Home" asp-route-categoryId="@category.Id" class="category_link"> @category.Name</a>
+                                </div>
+                                @foreach (var subcategory in category.Subcategories)
+                                {
+                                    <a asp-action="SubcategoryProducts" asp-controller="Home" asp-route-subcategoryId="@subcategory.Id" class="subcategory_link">@subcategory.Name</a>
+                                }
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav ml-auto nav-right">
+                <li class="menu_item position-relative">
+                    <a asp-controller="Cart" asp-action="Index" asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()">
+                        <i class="fa fa-shopping-cart"></i> Cart
+                    </a>
+                    @if (cart.Lines.Count() != 0)
+                    {
+                        <span class="badge badge-success lines_status position-absolute" style="top: 0;right: 0;">@cart.Lines.Count()</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-success lines_status position-absolute" style="top: 0;right: 0;"></span>
+                    }
+
+                </li>
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+
+                    AppUser user = await userManager.FindByNameAsync(Context.User.Identity.Name);
+
+                    <li class="menu user-menu dropdown">
+                        <button class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            @if (string.IsNullOrEmpty(user.Photo))
+                            {
+                                <img src="~/images/users/default.png" alt="user_photo" width="40" height="40" />
+                            }
+                            else
+                            {
+                                <img src="@user.Photo" alt="photo_user" class="rounded-circle" width="40" height="40" />
+                            }
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="user-header">
+                                @if (string.IsNullOrEmpty(user.Photo))
+                                {
+                                    <img src="~/images/users/default.png" alt="user_photo" width="100" height="100" />
+                                }
+                                else
+                                {
+                                    <img src="@user.Photo" alt="photo_user" class="rounded-circle" width="100" height="100" />
+                                }
+                                <p>
+                                    @user.FirstName @user.LastName - @userManager.GetRolesAsync(user).Result.FirstOrDefault() <br />
+                                    <small>Member since @user.DateCreated.ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("en"))</small>
+                                </p>
+                            </div>
+                            <div class="user-body">
+
+                                <a id="btn_profile" asp-action="EditUser" asp-controller="User" asp-route-id="@user.Id">Profile</a>
+                                <a id="btn_logout" asp-action="Logout" asp-controller="Account">Log out</a>
+                            </div>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="menu_item d-flex">
+                        <a asp-action="Login" asp-controller="Account">
+                            <i class="fas fa-door-open"></i> Login
+                        </a>
+                    </li>
+                    <li class="menu_item">
+                        <a asp-action="Register" asp-controller="Account">
+                            <i class="fas fa-user-plus"></i>Sign up
+                        </a>
+                    </li>
+                }
+                @if (Context.User.IsInRole("Admin"))
+                {
+                    <li class="menu_item">
+                        <a asp-action="Index" asp-controller="Admin">
+                            <i class="fas fa-user-cog"></i> Admin Panel
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/src/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
+    <script src="~/js/homepage.js" asp-append-version="true"></script>
+    <script src="~/js/productpreview.js" asp-append-version="true"></script>
+    <script src="~/js/cart.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿ .product_review {
+     position: relative;
+ }
+.product_review .description {
+    display: block;
+    list-style-type: circle;
+    padding: 15px 25px;
+    width: 500px;
+    margin: auto;
+}
+.product_review .specifications_table {
+    padding: 5px 15px;
+}
+    .product_review .price, .product_review .stock_amount {
+        position: absolute;
+        top: 30px;
+        right: 80px;
+        width: 100px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+        .product_review .stock_amount {
+            left: 80px;
+            width: 230px;
+            color: white;
+        }
+        .product_review .cart_btn {
+            padding: 8px 12px;
+            width: 150px;
+            border-radius: 25px;
+            height: 45px;
+            text-align: center;
+        } 
+@media screen and (max-width: 900px) {
+    #product_preview_container .product_review {
+        margin-top: 25px;
+    }
+    .product_review .price, .product_review .stock_amount {
+        position: static;
+        margin: auto;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    #product_preview_container .product_review {
+        margin-top: 25px;
+    }
+    
+}

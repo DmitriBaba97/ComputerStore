@@ -1,0 +1,153 @@
+﻿@inject UserManager<AppUser> manager
+@{
+    AppUser user = await manager.FindByNameAsync(Context.User.Identity.Name);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="~/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="~/lib/mdbootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/mdbootstrap/css/mdb.min.css" />
+    <!--<link rel="stylesheet" href="~/lib/datatables/media/css/dataTables.bootstrap4.min.css" />-->
+    <link rel="stylesheet" href="~/lib/mdbootstrap/css/addons/datatables.min.css"/>
+    <link rel="stylesheet" asp-href-include="~/lib/fontawesome/css/*.css" />
+    <link rel="stylesheet" href="~/lib/chart.js/dist/Chart.min.css" />
+    <link rel="stylesheet" href="~/lib/jvectormap/jquery-jvectormap-2.0.3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Numans" />
+    <link rel="stylesheet" href="~/css/adminpanel.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/categories.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admintopnavbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/adminsidenavbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admincontent.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/users.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/editprofile.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand"
+           asp-action="Index" asp-controller="Home">
+            ComputerStore
+        </a>
+        <div class="navContainer">
+            <ul class="navbar-nav mr-auto nav1">
+                <li id="pushMenuBtn">
+                    <button type="button">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </li>
+                <li id="homeBtn">
+                    <a asp-action="Index" asp-controller="Admin">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav2">
+                <li class="menu user-menu dropdown">
+                    <button class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        @if (string.IsNullOrEmpty(user.Photo))
+                        {
+                            <img src="~/images/users/default.png" alt="user_photo" width="40" height="40" />
+                        }
+                        else
+                        {
+                            <img src="@user.Photo" alt="photo_user" class="rounded-circle" width="40" height="40" />
+                        }
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="user-header">
+                            @if (string.IsNullOrEmpty(user.Photo))
+                            {
+                                <img src="~/images/users/default.png" alt="user_photo" width="100" height="100" />
+                            }
+                            else
+                            {
+                                <img src="@user.Photo" alt="photo_user" class="rounded-circle" width="100" height="100" />
+                            }
+                            <p>
+                                @user.FirstName @user.LastName - @manager.GetRolesAsync(user).Result.FirstOrDefault() <br />
+                                <small>Member since @user.DateCreated.ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("en"))</small>
+                            </p>
+                        </div>
+                        <div class="user-body">
+                            <a id="btn_profile" asp-action="EditUser" asp-controller="User" asp-route-id="@user.Id">Profile</a>
+                            <a id="btn_logout" asp-action="Logout" asp-controller="Account">Log out</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="sidebar-nav vh-100">
+        <ul class="sidebar-menu">
+            <li class="menu-item dropdown dropright">
+                <button type="button" data-toggle="dropdown" aria-expanded="true">
+                    <i class="fas fa-laptop" aria-hidden="true"></i> Products
+                    <div class="float-right"><i class="fas fa-angle-down fa-lg icon" aria-hidden="true"></i></div>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-action="Index" asp-controller="Product">Manage Products</a>
+                    <a class="dropdown-item" asp-action="AddProduct" asp-controller="Product">Add New Product</a>
+                </div>
+            </li>
+            <li class="menu-item">
+                <a class="menu_link" asp-action="Index" asp-controller="Category">
+                    <i class="fas fa-list-alt"></i> Categories
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu_link" asp-action="Index" asp-controller="Subcategory">
+                    <i class="fas fa-list-ol"></i> Subcategories
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu_link" asp-action="Index" asp-controller="User">
+                    <i class="fas fa-users"></i> Users
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu_link" asp-action="Index" asp-controller="Role">
+                    <i class="fas fa-users-cog"></i> Roles
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-wrapper">
+        <h4 id="content-header"></h4>
+        @RenderBody()
+    </div>
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    <script src="~/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/src/jquery.validate.unobtrusive.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+    <script src="~/lib/mdbootstrap/js/popper.min.js"></script>
+    <script src="~/lib/chart.js/dist/Chart.js"></script>
+    <script src="~/lib/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="~/lib/jvectormap/jquery-jvectormap-world-mill.js"></script>
+    <!--<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <script src="~/lib/mdbootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/mdbootstrap/js/mdb.min.js"></script>
+    <!--<script src="~/lib/datatables/media/js/jquery.dataTables.min.js"></script>-->
+    <!--<script src="~/lib/datatables/media/js/dataTables.bootstrap4.min.js"></script>-->
+    <script src="~/lib/mdbootstrap/js/addons/datatables.min.js"></script>
+    <script src="~/js/adminpanel.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+    <script src="~/js/categories.js" asp-append-version="true"></script>
+    <script src="~/js/subcategories.js" asp-append-version="true"></script>
+    <script src="~/js/filteroptions.js" asp-append-version="true"></script>
+    <script src="~/js/products.js" asp-append-version="true"></script>
+    <script src="~/js/users.js" asp-append-version="true"></script>
+    <script src="~/js/roles.js" asp-append-version="true"></script>
+</body>
+</html>

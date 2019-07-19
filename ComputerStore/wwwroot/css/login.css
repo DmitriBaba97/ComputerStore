@@ -1,0 +1,58 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Numans');
+* {box-sizing: border-box;}
+body {
+    height: 100%;
+    background-image: url(../images/abstract-art-background-586744.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-family: 'Numans', sans-serif;
+}
+.card {background-color: rgba(0,0,0,0.5) !important;}
+.card-header h3 {color: white;}
+.input-group-prepend span {
+    width: 40px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+.remember {color: white;}
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.login_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100%;
+}
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+.card-footer {color: white;}
+.card-footer a:hover {
+    color: grey;
+    text-decoration: none;
+}
+.card-footer hr {background-color: grey;}
+.error_msg {color: white;}
+@media screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+    .container {
+        margin: 25px 0;
+    }
+}
